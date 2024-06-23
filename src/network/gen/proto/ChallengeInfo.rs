@@ -124,7 +124,7 @@ impl ::protobuf::Message for ChallengeInfo {
                 24 => {
                     self.score = is.read_uint32()?;
                 },
-                40 => {
+                80 => {
                     self.round_count = is.read_uint32()?;
                 },
                 72 => {
@@ -159,7 +159,7 @@ impl ::protobuf::Message for ChallengeInfo {
             my_size += ::protobuf::rt::uint32_size(3, self.score);
         }
         if self.round_count != 0 {
-            my_size += ::protobuf::rt::uint32_size(5, self.round_count);
+            my_size += ::protobuf::rt::uint32_size(10, self.round_count);
         }
         if self.score_two != 0 {
             my_size += ::protobuf::rt::uint32_size(9, self.score_two);
@@ -186,7 +186,7 @@ impl ::protobuf::Message for ChallengeInfo {
             os.write_uint32(3, self.score)?;
         }
         if self.round_count != 0 {
-            os.write_uint32(5, self.round_count)?;
+            os.write_uint32(10, self.round_count)?;
         }
         if self.score_two != 0 {
             os.write_uint32(9, self.score_two)?;
@@ -261,7 +261,7 @@ static file_descriptor_proto_data: &'static [u8] = b"\
     toryInfo.proto\x1a\x15ChallengeStatus.proto\"\xa2\x02\n\rChallengeInfo\
     \x12!\n\x0cchallenge_id\x18\x0f\x20\x01(\rR\x0bchallengeId\x122\n\nstory\
     _info\x18\x04\x20\x01(\x0b2\x13.ChallengeStoryInfoR\tstoryInfo\x12\x14\n\
-    \x05score\x18\x03\x20\x01(\rR\x05score\x12\x1f\n\x0bround_count\x18\x05\
+    \x05score\x18\x03\x20\x01(\rR\x05score\x12\x1f\n\x0bround_count\x18\n\
     \x20\x01(\rR\nroundCount\x12\x1b\n\tscore_two\x18\t\x20\x01(\rR\x08score\
     Two\x12<\n\x11extra_lineup_type\x18\x0e\x20\x01(\x0e2\x10.ExtraLineupTyp\
     eR\x0fextraLineupType\x12(\n\x06status\x18\r\x20\x01(\x0e2\x10.Challenge\

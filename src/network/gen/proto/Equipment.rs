@@ -35,8 +35,6 @@ pub struct Equipment {
     pub promotion: u32,
     // @@protoc_insertion_point(field:Equipment.level)
     pub level: u32,
-    // @@protoc_insertion_point(field:Equipment.base_avatar_id)
-    pub base_avatar_id: u32,
     // @@protoc_insertion_point(field:Equipment.is_protected)
     pub is_protected: bool,
     // @@protoc_insertion_point(field:Equipment.rank)
@@ -64,7 +62,7 @@ impl Equipment {
     }
 
     fn generated_message_descriptor_data() -> ::protobuf::reflect::GeneratedMessageDescriptorData {
-        let mut fields = ::std::vec::Vec::with_capacity(9);
+        let mut fields = ::std::vec::Vec::with_capacity(8);
         let mut oneofs = ::std::vec::Vec::with_capacity(0);
         fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
             "exp",
@@ -80,11 +78,6 @@ impl Equipment {
             "level",
             |m: &Equipment| { &m.level },
             |m: &mut Equipment| { &mut m.level },
-        ));
-        fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
-            "base_avatar_id",
-            |m: &Equipment| { &m.base_avatar_id },
-            |m: &mut Equipment| { &mut m.base_avatar_id },
         ));
         fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
             "is_protected",
@@ -138,9 +131,6 @@ impl ::protobuf::Message for Equipment {
                 72 => {
                     self.level = is.read_uint32()?;
                 },
-                16 => {
-                    self.base_avatar_id = is.read_uint32()?;
-                },
                 112 => {
                     self.is_protected = is.read_bool()?;
                 },
@@ -177,9 +167,6 @@ impl ::protobuf::Message for Equipment {
         if self.level != 0 {
             my_size += ::protobuf::rt::uint32_size(9, self.level);
         }
-        if self.base_avatar_id != 0 {
-            my_size += ::protobuf::rt::uint32_size(2, self.base_avatar_id);
-        }
         if self.is_protected != false {
             my_size += 1 + 1;
         }
@@ -209,9 +196,6 @@ impl ::protobuf::Message for Equipment {
         }
         if self.level != 0 {
             os.write_uint32(9, self.level)?;
-        }
-        if self.base_avatar_id != 0 {
-            os.write_uint32(2, self.base_avatar_id)?;
         }
         if self.is_protected != false {
             os.write_bool(14, self.is_protected)?;
@@ -248,7 +232,6 @@ impl ::protobuf::Message for Equipment {
         self.exp = 0;
         self.promotion = 0;
         self.level = 0;
-        self.base_avatar_id = 0;
         self.is_protected = false;
         self.rank = 0;
         self.unique_id = 0;
@@ -262,7 +245,6 @@ impl ::protobuf::Message for Equipment {
             exp: 0,
             promotion: 0,
             level: 0,
-            base_avatar_id: 0,
             is_protected: false,
             rank: 0,
             unique_id: 0,
@@ -292,14 +274,13 @@ impl ::protobuf::reflect::ProtobufValue for Equipment {
 }
 
 static file_descriptor_proto_data: &'static [u8] = b"\
-    \n\x0fEquipment.proto\"\x85\x02\n\tEquipment\x12\x10\n\x03exp\x18\x07\
+    \n\x0fEquipment.proto\"\xdf\x01\n\tEquipment\x12\x10\n\x03exp\x18\x07\
     \x20\x01(\rR\x03exp\x12\x1c\n\tpromotion\x18\n\x20\x01(\rR\tpromotion\
-    \x12\x14\n\x05level\x18\t\x20\x01(\rR\x05level\x12$\n\x0ebase_avatar_id\
-    \x18\x02\x20\x01(\rR\x0cbaseAvatarId\x12!\n\x0cis_protected\x18\x0e\x20\
-    \x01(\x08R\x0bisProtected\x12\x12\n\x04rank\x18\x05\x20\x01(\rR\x04rank\
-    \x12\x1b\n\tunique_id\x18\x0b\x20\x01(\rR\x08uniqueId\x12&\n\x0fequip_av\
-    atar_id\x18\r\x20\x01(\rR\requipAvatarId\x12\x10\n\x03tid\x18\x0c\x20\
-    \x01(\rR\x03tidB\x15\n\x13emu.lunarcore.protob\x06proto3\
+    \x12\x14\n\x05level\x18\t\x20\x01(\rR\x05level\x12!\n\x0cis_protected\
+    \x18\x0e\x20\x01(\x08R\x0bisProtected\x12\x12\n\x04rank\x18\x05\x20\x01(\
+    \rR\x04rank\x12\x1b\n\tunique_id\x18\x0b\x20\x01(\rR\x08uniqueId\x12&\n\
+    \x0fequip_avatar_id\x18\r\x20\x01(\rR\requipAvatarId\x12\x10\n\x03tid\
+    \x18\x0c\x20\x01(\rR\x03tidB\x15\n\x13emu.lunarcore.protob\x06proto3\
 ";
 
 /// `FileDescriptorProto` object which was a source for this generated file
