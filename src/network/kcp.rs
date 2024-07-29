@@ -118,7 +118,7 @@ fn reformat_kcp_segments(data: &[u8]) -> Vec<u8> {
     trace!("before split: {}", bytes_as_hex(data));
 
     let mut i = 0;
-    while i < data.len() {
+    while i < data.len() - 28 {
         let conv_id = &data[i..i + 4];
 
         let _ = &data[i + 4..i + 8]; // skip
