@@ -55,7 +55,7 @@ use gen::command_id;
 use crate::network::connection::parse_connection_packet;
 use crate::network::crypto::{decrypt_command, lookup_initial_key, new_key_from_seed};
 use crate::network::gen::command_id::command_id_to_str;
-use crate::network::gen::proto::PlayerGetTokenScRsp::PlayerGetTokenScRsp;
+use crate::network::gen::proto::GetPlayerTokenRsp::GetPlayerTokenRsp;
 use crate::network::kcp::KcpSniffer;
 
 fn bytes_as_hex(bytes: &[u8]) -> String {
@@ -261,8 +261,8 @@ impl GameSniffer {
             return None;
         }
 
-        if command.command_id == command_id::PlayerGetTokenScRsp {
-            let token_command = command.parse_proto::<PlayerGetTokenScRsp>().unwrap();
+        if command.command_id == command_id::GetPlayerTokenRsp {
+            let token_command = command.parse_proto::<GetPlayerTokenRsp>().unwrap();
             let seed = token_command.secret_key_seed;
             info!(?seed, "setting new session key");
             self.key = Some(new_key_from_seed(seed));

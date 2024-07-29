@@ -30,21 +30,57 @@ const _PROTOBUF_VERSION_CHECK: () = ::protobuf::VERSION_3_4_0;
 pub struct GachaInfo {
     // message fields
     // @@protoc_insertion_point(field:GachaInfo.end_time)
-    pub end_time: i64,
+    pub end_time: u32,
+    // @@protoc_insertion_point(field:GachaInfo.schedule_id)
+    pub schedule_id: u32,
+    // @@protoc_insertion_point(field:GachaInfo.gacha_type)
+    pub gacha_type: u32,
     // @@protoc_insertion_point(field:GachaInfo.begin_time)
-    pub begin_time: i64,
-    // @@protoc_insertion_point(field:GachaInfo.up_info)
-    pub up_info: ::std::vec::Vec<u32>,
-    // @@protoc_insertion_point(field:GachaInfo.featured)
-    pub featured: ::std::vec::Vec<u32>,
-    // @@protoc_insertion_point(field:GachaInfo.history_url)
-    pub history_url: ::std::string::String,
-    // @@protoc_insertion_point(field:GachaInfo.detail_url)
-    pub detail_url: ::std::string::String,
-    // @@protoc_insertion_point(field:GachaInfo.gacha_ceiling)
-    pub gacha_ceiling: ::protobuf::MessageField<super::GachaCeiling::GachaCeiling>,
-    // @@protoc_insertion_point(field:GachaInfo.gacha_id)
-    pub gacha_id: u32,
+    pub begin_time: u32,
+    // @@protoc_insertion_point(field:GachaInfo.gacha_up_info_list)
+    pub gacha_up_info_list: ::std::vec::Vec<super::GachaUpInfo::GachaUpInfo>,
+    // @@protoc_insertion_point(field:GachaInfo.costItemId)
+    pub costItemId: u32,
+    // @@protoc_insertion_point(field:GachaInfo.gachaPrefabPath)
+    pub gachaPrefabPath: ::std::string::String,
+    // @@protoc_insertion_point(field:GachaInfo.wishMaxProgress)
+    pub wishMaxProgress: u32,
+    // @@protoc_insertion_point(field:GachaInfo.curScheduleDailyGachaTimes)
+    pub curScheduleDailyGachaTimes: u32,
+    // @@protoc_insertion_point(field:GachaInfo.leftGachaTimes)
+    pub leftGachaTimes: u32,
+    // @@protoc_insertion_point(field:GachaInfo.is_new_wish)
+    pub is_new_wish: bool,
+    // @@protoc_insertion_point(field:GachaInfo.tenCostItemNum)
+    pub tenCostItemNum: u32,
+    // @@protoc_insertion_point(field:GachaInfo.wishProgress)
+    pub wishProgress: u32,
+    // @@protoc_insertion_point(field:GachaInfo.tenCostItemId)
+    pub tenCostItemId: u32,
+    // @@protoc_insertion_point(field:GachaInfo.gachaSortId)
+    pub gachaSortId: u32,
+    // @@protoc_insertion_point(field:GachaInfo.displayUp4ItemList)
+    pub displayUp4ItemList: ::std::vec::Vec<u32>,
+    // @@protoc_insertion_point(field:GachaInfo.gachaRecordUrlOversea)
+    pub gachaRecordUrlOversea: ::std::string::String,
+    // @@protoc_insertion_point(field:GachaInfo.gachaRecordUrl)
+    pub gachaRecordUrl: ::std::string::String,
+    // @@protoc_insertion_point(field:GachaInfo.gachaProbUrlOversea)
+    pub gachaProbUrlOversea: ::std::string::String,
+    // @@protoc_insertion_point(field:GachaInfo.gachaProbUrl)
+    pub gachaProbUrl: ::std::string::String,
+    // @@protoc_insertion_point(field:GachaInfo.wishItemId)
+    pub wishItemId: u32,
+    // @@protoc_insertion_point(field:GachaInfo.gachaPreviewPrefabPath)
+    pub gachaPreviewPrefabPath: ::std::string::String,
+    // @@protoc_insertion_point(field:GachaInfo.titleTextmap)
+    pub titleTextmap: ::std::string::String,
+    // @@protoc_insertion_point(field:GachaInfo.displayUp5ItemList)
+    pub displayUp5ItemList: ::std::vec::Vec<u32>,
+    // @@protoc_insertion_point(field:GachaInfo.gachaTimesLimit)
+    pub gachaTimesLimit: u32,
+    // @@protoc_insertion_point(field:GachaInfo.costItemNum)
+    pub costItemNum: u32,
     // special fields
     // @@protoc_insertion_point(special_field:GachaInfo.special_fields)
     pub special_fields: ::protobuf::SpecialFields,
@@ -62,7 +98,7 @@ impl GachaInfo {
     }
 
     fn generated_message_descriptor_data() -> ::protobuf::reflect::GeneratedMessageDescriptorData {
-        let mut fields = ::std::vec::Vec::with_capacity(8);
+        let mut fields = ::std::vec::Vec::with_capacity(26);
         let mut oneofs = ::std::vec::Vec::with_capacity(0);
         fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
             "end_time",
@@ -70,39 +106,129 @@ impl GachaInfo {
             |m: &mut GachaInfo| { &mut m.end_time },
         ));
         fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
+            "schedule_id",
+            |m: &GachaInfo| { &m.schedule_id },
+            |m: &mut GachaInfo| { &mut m.schedule_id },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
+            "gacha_type",
+            |m: &GachaInfo| { &m.gacha_type },
+            |m: &mut GachaInfo| { &mut m.gacha_type },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
             "begin_time",
             |m: &GachaInfo| { &m.begin_time },
             |m: &mut GachaInfo| { &mut m.begin_time },
         ));
         fields.push(::protobuf::reflect::rt::v2::make_vec_simpler_accessor::<_, _>(
-            "up_info",
-            |m: &GachaInfo| { &m.up_info },
-            |m: &mut GachaInfo| { &mut m.up_info },
+            "gacha_up_info_list",
+            |m: &GachaInfo| { &m.gacha_up_info_list },
+            |m: &mut GachaInfo| { &mut m.gacha_up_info_list },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
+            "costItemId",
+            |m: &GachaInfo| { &m.costItemId },
+            |m: &mut GachaInfo| { &mut m.costItemId },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
+            "gachaPrefabPath",
+            |m: &GachaInfo| { &m.gachaPrefabPath },
+            |m: &mut GachaInfo| { &mut m.gachaPrefabPath },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
+            "wishMaxProgress",
+            |m: &GachaInfo| { &m.wishMaxProgress },
+            |m: &mut GachaInfo| { &mut m.wishMaxProgress },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
+            "curScheduleDailyGachaTimes",
+            |m: &GachaInfo| { &m.curScheduleDailyGachaTimes },
+            |m: &mut GachaInfo| { &mut m.curScheduleDailyGachaTimes },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
+            "leftGachaTimes",
+            |m: &GachaInfo| { &m.leftGachaTimes },
+            |m: &mut GachaInfo| { &mut m.leftGachaTimes },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
+            "is_new_wish",
+            |m: &GachaInfo| { &m.is_new_wish },
+            |m: &mut GachaInfo| { &mut m.is_new_wish },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
+            "tenCostItemNum",
+            |m: &GachaInfo| { &m.tenCostItemNum },
+            |m: &mut GachaInfo| { &mut m.tenCostItemNum },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
+            "wishProgress",
+            |m: &GachaInfo| { &m.wishProgress },
+            |m: &mut GachaInfo| { &mut m.wishProgress },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
+            "tenCostItemId",
+            |m: &GachaInfo| { &m.tenCostItemId },
+            |m: &mut GachaInfo| { &mut m.tenCostItemId },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
+            "gachaSortId",
+            |m: &GachaInfo| { &m.gachaSortId },
+            |m: &mut GachaInfo| { &mut m.gachaSortId },
         ));
         fields.push(::protobuf::reflect::rt::v2::make_vec_simpler_accessor::<_, _>(
-            "featured",
-            |m: &GachaInfo| { &m.featured },
-            |m: &mut GachaInfo| { &mut m.featured },
+            "displayUp4ItemList",
+            |m: &GachaInfo| { &m.displayUp4ItemList },
+            |m: &mut GachaInfo| { &mut m.displayUp4ItemList },
         ));
         fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
-            "history_url",
-            |m: &GachaInfo| { &m.history_url },
-            |m: &mut GachaInfo| { &mut m.history_url },
+            "gachaRecordUrlOversea",
+            |m: &GachaInfo| { &m.gachaRecordUrlOversea },
+            |m: &mut GachaInfo| { &mut m.gachaRecordUrlOversea },
         ));
         fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
-            "detail_url",
-            |m: &GachaInfo| { &m.detail_url },
-            |m: &mut GachaInfo| { &mut m.detail_url },
-        ));
-        fields.push(::protobuf::reflect::rt::v2::make_message_field_accessor::<_, super::GachaCeiling::GachaCeiling>(
-            "gacha_ceiling",
-            |m: &GachaInfo| { &m.gacha_ceiling },
-            |m: &mut GachaInfo| { &mut m.gacha_ceiling },
+            "gachaRecordUrl",
+            |m: &GachaInfo| { &m.gachaRecordUrl },
+            |m: &mut GachaInfo| { &mut m.gachaRecordUrl },
         ));
         fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
-            "gacha_id",
-            |m: &GachaInfo| { &m.gacha_id },
-            |m: &mut GachaInfo| { &mut m.gacha_id },
+            "gachaProbUrlOversea",
+            |m: &GachaInfo| { &m.gachaProbUrlOversea },
+            |m: &mut GachaInfo| { &mut m.gachaProbUrlOversea },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
+            "gachaProbUrl",
+            |m: &GachaInfo| { &m.gachaProbUrl },
+            |m: &mut GachaInfo| { &mut m.gachaProbUrl },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
+            "wishItemId",
+            |m: &GachaInfo| { &m.wishItemId },
+            |m: &mut GachaInfo| { &mut m.wishItemId },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
+            "gachaPreviewPrefabPath",
+            |m: &GachaInfo| { &m.gachaPreviewPrefabPath },
+            |m: &mut GachaInfo| { &mut m.gachaPreviewPrefabPath },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
+            "titleTextmap",
+            |m: &GachaInfo| { &m.titleTextmap },
+            |m: &mut GachaInfo| { &mut m.titleTextmap },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_vec_simpler_accessor::<_, _>(
+            "displayUp5ItemList",
+            |m: &GachaInfo| { &m.displayUp5ItemList },
+            |m: &mut GachaInfo| { &mut m.displayUp5ItemList },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
+            "gachaTimesLimit",
+            |m: &GachaInfo| { &m.gachaTimesLimit },
+            |m: &mut GachaInfo| { &mut m.gachaTimesLimit },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
+            "costItemNum",
+            |m: &GachaInfo| { &m.costItemNum },
+            |m: &mut GachaInfo| { &mut m.costItemNum },
         ));
         ::protobuf::reflect::GeneratedMessageDescriptorData::new_2::<GachaInfo>(
             "GachaInfo",
@@ -122,35 +248,89 @@ impl ::protobuf::Message for GachaInfo {
     fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream<'_>) -> ::protobuf::Result<()> {
         while let Some(tag) = is.read_raw_tag_or_eof()? {
             match tag {
-                24 => {
-                    self.end_time = is.read_int64()?;
-                },
                 40 => {
-                    self.begin_time = is.read_int64()?;
-                },
-                82 => {
-                    is.read_repeated_packed_uint32_into(&mut self.up_info)?;
+                    self.end_time = is.read_uint32()?;
                 },
                 80 => {
-                    self.up_info.push(is.read_uint32()?);
+                    self.schedule_id = is.read_uint32()?;
+                },
+                88 => {
+                    self.gacha_type = is.read_uint32()?;
+                },
+                96 => {
+                    self.begin_time = is.read_uint32()?;
+                },
+                6418 => {
+                    self.gacha_up_info_list.push(is.read_message()?);
+                },
+                104 => {
+                    self.costItemId = is.read_uint32()?;
+                },
+                802 => {
+                    self.gachaPrefabPath = is.read_string()?;
+                },
+                7680 => {
+                    self.wishMaxProgress = is.read_uint32()?;
+                },
+                11648 => {
+                    self.curScheduleDailyGachaTimes = is.read_uint32()?;
+                },
+                120 => {
+                    self.leftGachaTimes = is.read_uint32()?;
+                },
+                12296 => {
+                    self.is_new_wish = is.read_bool()?;
+                },
+                64 => {
+                    self.tenCostItemNum = is.read_uint32()?;
+                },
+                12088 => {
+                    self.wishProgress = is.read_uint32()?;
+                },
+                48 => {
+                    self.tenCostItemId = is.read_uint32()?;
+                },
+                880 => {
+                    self.gachaSortId = is.read_uint32()?;
+                },
+                10282 => {
+                    is.read_repeated_packed_uint32_into(&mut self.displayUp4ItemList)?;
+                },
+                10280 => {
+                    self.displayUp4ItemList.push(is.read_uint32()?);
+                },
+                9770 => {
+                    self.gachaRecordUrlOversea = is.read_string()?;
                 },
                 34 => {
-                    is.read_repeated_packed_uint32_into(&mut self.featured)?;
+                    self.gachaRecordUrl = is.read_string()?;
                 },
-                32 => {
-                    self.featured.push(is.read_uint32()?);
+                9450 => {
+                    self.gachaProbUrlOversea = is.read_string()?;
                 },
-                58 => {
-                    self.history_url = is.read_string()?;
+                74 => {
+                    self.gachaProbUrl = is.read_string()?;
                 },
-                18 => {
-                    self.detail_url = is.read_string()?;
+                6960 => {
+                    self.wishItemId = is.read_uint32()?;
                 },
-                10 => {
-                    ::protobuf::rt::read_singular_message_into_field(is, &mut self.gacha_ceiling)?;
+                962 => {
+                    self.gachaPreviewPrefabPath = is.read_string()?;
                 },
-                72 => {
-                    self.gacha_id = is.read_uint32()?;
+                6778 => {
+                    self.titleTextmap = is.read_string()?;
+                },
+                14650 => {
+                    is.read_repeated_packed_uint32_into(&mut self.displayUp5ItemList)?;
+                },
+                14648 => {
+                    self.displayUp5ItemList.push(is.read_uint32()?);
+                },
+                112 => {
+                    self.gachaTimesLimit = is.read_uint32()?;
+                },
+                16 => {
+                    self.costItemNum = is.read_uint32()?;
                 },
                 tag => {
                     ::protobuf::rt::read_unknown_or_skip_group(tag, is, self.special_fields.mut_unknown_fields())?;
@@ -165,29 +345,83 @@ impl ::protobuf::Message for GachaInfo {
     fn compute_size(&self) -> u64 {
         let mut my_size = 0;
         if self.end_time != 0 {
-            my_size += ::protobuf::rt::int64_size(3, self.end_time);
+            my_size += ::protobuf::rt::uint32_size(5, self.end_time);
+        }
+        if self.schedule_id != 0 {
+            my_size += ::protobuf::rt::uint32_size(10, self.schedule_id);
+        }
+        if self.gacha_type != 0 {
+            my_size += ::protobuf::rt::uint32_size(11, self.gacha_type);
         }
         if self.begin_time != 0 {
-            my_size += ::protobuf::rt::int64_size(5, self.begin_time);
+            my_size += ::protobuf::rt::uint32_size(12, self.begin_time);
         }
-        for value in &self.up_info {
-            my_size += ::protobuf::rt::uint32_size(10, *value);
+        for value in &self.gacha_up_info_list {
+            let len = value.compute_size();
+            my_size += 2 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
         };
-        for value in &self.featured {
-            my_size += ::protobuf::rt::uint32_size(4, *value);
+        if self.costItemId != 0 {
+            my_size += ::protobuf::rt::uint32_size(13, self.costItemId);
+        }
+        if !self.gachaPrefabPath.is_empty() {
+            my_size += ::protobuf::rt::string_size(100, &self.gachaPrefabPath);
+        }
+        if self.wishMaxProgress != 0 {
+            my_size += ::protobuf::rt::uint32_size(960, self.wishMaxProgress);
+        }
+        if self.curScheduleDailyGachaTimes != 0 {
+            my_size += ::protobuf::rt::uint32_size(1456, self.curScheduleDailyGachaTimes);
+        }
+        if self.leftGachaTimes != 0 {
+            my_size += ::protobuf::rt::uint32_size(15, self.leftGachaTimes);
+        }
+        if self.is_new_wish != false {
+            my_size += 2 + 1;
+        }
+        if self.tenCostItemNum != 0 {
+            my_size += ::protobuf::rt::uint32_size(8, self.tenCostItemNum);
+        }
+        if self.wishProgress != 0 {
+            my_size += ::protobuf::rt::uint32_size(1511, self.wishProgress);
+        }
+        if self.tenCostItemId != 0 {
+            my_size += ::protobuf::rt::uint32_size(6, self.tenCostItemId);
+        }
+        if self.gachaSortId != 0 {
+            my_size += ::protobuf::rt::uint32_size(110, self.gachaSortId);
+        }
+        for value in &self.displayUp4ItemList {
+            my_size += ::protobuf::rt::uint32_size(1285, *value);
         };
-        if !self.history_url.is_empty() {
-            my_size += ::protobuf::rt::string_size(7, &self.history_url);
+        if !self.gachaRecordUrlOversea.is_empty() {
+            my_size += ::protobuf::rt::string_size(1221, &self.gachaRecordUrlOversea);
         }
-        if !self.detail_url.is_empty() {
-            my_size += ::protobuf::rt::string_size(2, &self.detail_url);
+        if !self.gachaRecordUrl.is_empty() {
+            my_size += ::protobuf::rt::string_size(4, &self.gachaRecordUrl);
         }
-        if let Some(v) = self.gacha_ceiling.as_ref() {
-            let len = v.compute_size();
-            my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
+        if !self.gachaProbUrlOversea.is_empty() {
+            my_size += ::protobuf::rt::string_size(1181, &self.gachaProbUrlOversea);
         }
-        if self.gacha_id != 0 {
-            my_size += ::protobuf::rt::uint32_size(9, self.gacha_id);
+        if !self.gachaProbUrl.is_empty() {
+            my_size += ::protobuf::rt::string_size(9, &self.gachaProbUrl);
+        }
+        if self.wishItemId != 0 {
+            my_size += ::protobuf::rt::uint32_size(870, self.wishItemId);
+        }
+        if !self.gachaPreviewPrefabPath.is_empty() {
+            my_size += ::protobuf::rt::string_size(120, &self.gachaPreviewPrefabPath);
+        }
+        if !self.titleTextmap.is_empty() {
+            my_size += ::protobuf::rt::string_size(847, &self.titleTextmap);
+        }
+        for value in &self.displayUp5ItemList {
+            my_size += ::protobuf::rt::uint32_size(1831, *value);
+        };
+        if self.gachaTimesLimit != 0 {
+            my_size += ::protobuf::rt::uint32_size(14, self.gachaTimesLimit);
+        }
+        if self.costItemNum != 0 {
+            my_size += ::protobuf::rt::uint32_size(2, self.costItemNum);
         }
         my_size += ::protobuf::rt::unknown_fields_size(self.special_fields.unknown_fields());
         self.special_fields.cached_size().set(my_size as u32);
@@ -196,28 +430,82 @@ impl ::protobuf::Message for GachaInfo {
 
     fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream<'_>) -> ::protobuf::Result<()> {
         if self.end_time != 0 {
-            os.write_int64(3, self.end_time)?;
+            os.write_uint32(5, self.end_time)?;
+        }
+        if self.schedule_id != 0 {
+            os.write_uint32(10, self.schedule_id)?;
+        }
+        if self.gacha_type != 0 {
+            os.write_uint32(11, self.gacha_type)?;
         }
         if self.begin_time != 0 {
-            os.write_int64(5, self.begin_time)?;
+            os.write_uint32(12, self.begin_time)?;
         }
-        for v in &self.up_info {
-            os.write_uint32(10, *v)?;
+        for v in &self.gacha_up_info_list {
+            ::protobuf::rt::write_message_field_with_cached_size(802, v, os)?;
         };
-        for v in &self.featured {
-            os.write_uint32(4, *v)?;
+        if self.costItemId != 0 {
+            os.write_uint32(13, self.costItemId)?;
+        }
+        if !self.gachaPrefabPath.is_empty() {
+            os.write_string(100, &self.gachaPrefabPath)?;
+        }
+        if self.wishMaxProgress != 0 {
+            os.write_uint32(960, self.wishMaxProgress)?;
+        }
+        if self.curScheduleDailyGachaTimes != 0 {
+            os.write_uint32(1456, self.curScheduleDailyGachaTimes)?;
+        }
+        if self.leftGachaTimes != 0 {
+            os.write_uint32(15, self.leftGachaTimes)?;
+        }
+        if self.is_new_wish != false {
+            os.write_bool(1537, self.is_new_wish)?;
+        }
+        if self.tenCostItemNum != 0 {
+            os.write_uint32(8, self.tenCostItemNum)?;
+        }
+        if self.wishProgress != 0 {
+            os.write_uint32(1511, self.wishProgress)?;
+        }
+        if self.tenCostItemId != 0 {
+            os.write_uint32(6, self.tenCostItemId)?;
+        }
+        if self.gachaSortId != 0 {
+            os.write_uint32(110, self.gachaSortId)?;
+        }
+        for v in &self.displayUp4ItemList {
+            os.write_uint32(1285, *v)?;
         };
-        if !self.history_url.is_empty() {
-            os.write_string(7, &self.history_url)?;
+        if !self.gachaRecordUrlOversea.is_empty() {
+            os.write_string(1221, &self.gachaRecordUrlOversea)?;
         }
-        if !self.detail_url.is_empty() {
-            os.write_string(2, &self.detail_url)?;
+        if !self.gachaRecordUrl.is_empty() {
+            os.write_string(4, &self.gachaRecordUrl)?;
         }
-        if let Some(v) = self.gacha_ceiling.as_ref() {
-            ::protobuf::rt::write_message_field_with_cached_size(1, v, os)?;
+        if !self.gachaProbUrlOversea.is_empty() {
+            os.write_string(1181, &self.gachaProbUrlOversea)?;
         }
-        if self.gacha_id != 0 {
-            os.write_uint32(9, self.gacha_id)?;
+        if !self.gachaProbUrl.is_empty() {
+            os.write_string(9, &self.gachaProbUrl)?;
+        }
+        if self.wishItemId != 0 {
+            os.write_uint32(870, self.wishItemId)?;
+        }
+        if !self.gachaPreviewPrefabPath.is_empty() {
+            os.write_string(120, &self.gachaPreviewPrefabPath)?;
+        }
+        if !self.titleTextmap.is_empty() {
+            os.write_string(847, &self.titleTextmap)?;
+        }
+        for v in &self.displayUp5ItemList {
+            os.write_uint32(1831, *v)?;
+        };
+        if self.gachaTimesLimit != 0 {
+            os.write_uint32(14, self.gachaTimesLimit)?;
+        }
+        if self.costItemNum != 0 {
+            os.write_uint32(2, self.costItemNum)?;
         }
         os.write_unknown_fields(self.special_fields.unknown_fields())?;
         ::std::result::Result::Ok(())
@@ -237,26 +525,62 @@ impl ::protobuf::Message for GachaInfo {
 
     fn clear(&mut self) {
         self.end_time = 0;
+        self.schedule_id = 0;
+        self.gacha_type = 0;
         self.begin_time = 0;
-        self.up_info.clear();
-        self.featured.clear();
-        self.history_url.clear();
-        self.detail_url.clear();
-        self.gacha_ceiling.clear();
-        self.gacha_id = 0;
+        self.gacha_up_info_list.clear();
+        self.costItemId = 0;
+        self.gachaPrefabPath.clear();
+        self.wishMaxProgress = 0;
+        self.curScheduleDailyGachaTimes = 0;
+        self.leftGachaTimes = 0;
+        self.is_new_wish = false;
+        self.tenCostItemNum = 0;
+        self.wishProgress = 0;
+        self.tenCostItemId = 0;
+        self.gachaSortId = 0;
+        self.displayUp4ItemList.clear();
+        self.gachaRecordUrlOversea.clear();
+        self.gachaRecordUrl.clear();
+        self.gachaProbUrlOversea.clear();
+        self.gachaProbUrl.clear();
+        self.wishItemId = 0;
+        self.gachaPreviewPrefabPath.clear();
+        self.titleTextmap.clear();
+        self.displayUp5ItemList.clear();
+        self.gachaTimesLimit = 0;
+        self.costItemNum = 0;
         self.special_fields.clear();
     }
 
     fn default_instance() -> &'static GachaInfo {
         static instance: GachaInfo = GachaInfo {
             end_time: 0,
+            schedule_id: 0,
+            gacha_type: 0,
             begin_time: 0,
-            up_info: ::std::vec::Vec::new(),
-            featured: ::std::vec::Vec::new(),
-            history_url: ::std::string::String::new(),
-            detail_url: ::std::string::String::new(),
-            gacha_ceiling: ::protobuf::MessageField::none(),
-            gacha_id: 0,
+            gacha_up_info_list: ::std::vec::Vec::new(),
+            costItemId: 0,
+            gachaPrefabPath: ::std::string::String::new(),
+            wishMaxProgress: 0,
+            curScheduleDailyGachaTimes: 0,
+            leftGachaTimes: 0,
+            is_new_wish: false,
+            tenCostItemNum: 0,
+            wishProgress: 0,
+            tenCostItemId: 0,
+            gachaSortId: 0,
+            displayUp4ItemList: ::std::vec::Vec::new(),
+            gachaRecordUrlOversea: ::std::string::String::new(),
+            gachaRecordUrl: ::std::string::String::new(),
+            gachaProbUrlOversea: ::std::string::String::new(),
+            gachaProbUrl: ::std::string::String::new(),
+            wishItemId: 0,
+            gachaPreviewPrefabPath: ::std::string::String::new(),
+            titleTextmap: ::std::string::String::new(),
+            displayUp5ItemList: ::std::vec::Vec::new(),
+            gachaTimesLimit: 0,
+            costItemNum: 0,
             special_fields: ::protobuf::SpecialFields::new(),
         };
         &instance
@@ -281,14 +605,32 @@ impl ::protobuf::reflect::ProtobufValue for GachaInfo {
 }
 
 static file_descriptor_proto_data: &'static [u8] = b"\
-    \n\x0fGachaInfo.proto\x1a\x12GachaCeiling.proto\"\x89\x02\n\tGachaInfo\
-    \x12\x19\n\x08end_time\x18\x03\x20\x01(\x03R\x07endTime\x12\x1d\n\nbegin\
-    _time\x18\x05\x20\x01(\x03R\tbeginTime\x12\x17\n\x07up_info\x18\n\x20\
-    \x03(\rR\x06upInfo\x12\x1a\n\x08featured\x18\x04\x20\x03(\rR\x08featured\
-    \x12\x1f\n\x0bhistory_url\x18\x07\x20\x01(\tR\nhistoryUrl\x12\x1d\n\ndet\
-    ail_url\x18\x02\x20\x01(\tR\tdetailUrl\x122\n\rgacha_ceiling\x18\x01\x20\
-    \x01(\x0b2\r.GachaCeilingR\x0cgachaCeiling\x12\x19\n\x08gacha_id\x18\t\
-    \x20\x01(\rR\x07gachaIdB\x15\n\x13emu.lunarcore.protob\x06proto3\
+    \n\x0fGachaInfo.proto\x1a\x11GachaUpInfo.proto\"\xb7\x08\n\tGachaInfo\
+    \x12\x19\n\x08end_time\x18\x05\x20\x01(\rR\x07endTime\x12\x1f\n\x0bsched\
+    ule_id\x18\n\x20\x01(\rR\nscheduleId\x12\x1d\n\ngacha_type\x18\x0b\x20\
+    \x01(\rR\tgachaType\x12\x1d\n\nbegin_time\x18\x0c\x20\x01(\rR\tbeginTime\
+    \x12:\n\x12gacha_up_info_list\x18\xa2\x06\x20\x03(\x0b2\x0c.GachaUpInfoR\
+    \x0fgachaUpInfoList\x12\x1e\n\ncostItemId\x18\r\x20\x01(\rR\ncostItemId\
+    \x12(\n\x0fgachaPrefabPath\x18d\x20\x01(\tR\x0fgachaPrefabPath\x12)\n\
+    \x0fwishMaxProgress\x18\xc0\x07\x20\x01(\rR\x0fwishMaxProgress\x12?\n\
+    \x1acurScheduleDailyGachaTimes\x18\xb0\x0b\x20\x01(\rR\x1acurScheduleDai\
+    lyGachaTimes\x12&\n\x0eleftGachaTimes\x18\x0f\x20\x01(\rR\x0eleftGachaTi\
+    mes\x12\x1f\n\x0bis_new_wish\x18\x81\x0c\x20\x01(\x08R\tisNewWish\x12&\n\
+    \x0etenCostItemNum\x18\x08\x20\x01(\rR\x0etenCostItemNum\x12#\n\x0cwishP\
+    rogress\x18\xe7\x0b\x20\x01(\rR\x0cwishProgress\x12$\n\rtenCostItemId\
+    \x18\x06\x20\x01(\rR\rtenCostItemId\x12\x20\n\x0bgachaSortId\x18n\x20\
+    \x01(\rR\x0bgachaSortId\x12/\n\x12displayUp4ItemList\x18\x85\n\x20\x03(\
+    \rR\x12displayUp4ItemList\x125\n\x15gachaRecordUrlOversea\x18\xc5\t\x20\
+    \x01(\tR\x15gachaRecordUrlOversea\x12&\n\x0egachaRecordUrl\x18\x04\x20\
+    \x01(\tR\x0egachaRecordUrl\x121\n\x13gachaProbUrlOversea\x18\x9d\t\x20\
+    \x01(\tR\x13gachaProbUrlOversea\x12\"\n\x0cgachaProbUrl\x18\t\x20\x01(\t\
+    R\x0cgachaProbUrl\x12\x1f\n\nwishItemId\x18\xe6\x06\x20\x01(\rR\nwishIte\
+    mId\x126\n\x16gachaPreviewPrefabPath\x18x\x20\x01(\tR\x16gachaPreviewPre\
+    fabPath\x12#\n\x0ctitleTextmap\x18\xcf\x06\x20\x01(\tR\x0ctitleTextmap\
+    \x12/\n\x12displayUp5ItemList\x18\xa7\x0e\x20\x03(\rR\x12displayUp5ItemL\
+    ist\x12(\n\x0fgachaTimesLimit\x18\x0e\x20\x01(\rR\x0fgachaTimesLimit\x12\
+    \x20\n\x0bcostItemNum\x18\x02\x20\x01(\rR\x0bcostItemNumB\x1b\n\x19emu.g\
+    rasscutter.net.protob\x06proto3\
 ";
 
 /// `FileDescriptorProto` object which was a source for this generated file
@@ -306,7 +648,7 @@ pub fn file_descriptor() -> &'static ::protobuf::reflect::FileDescriptor {
     file_descriptor.get(|| {
         let generated_file_descriptor = generated_file_descriptor_lazy.get(|| {
             let mut deps = ::std::vec::Vec::with_capacity(1);
-            deps.push(super::GachaCeiling::file_descriptor().clone());
+            deps.push(super::GachaUpInfo::file_descriptor().clone());
             let mut messages = ::std::vec::Vec::with_capacity(1);
             messages.push(GachaInfo::generated_message_descriptor_data());
             let mut enums = ::std::vec::Vec::with_capacity(0);

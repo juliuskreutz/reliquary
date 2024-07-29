@@ -29,10 +29,10 @@ const _PROTOBUF_VERSION_CHECK: () = ::protobuf::VERSION_3_4_0;
 #[derive(PartialEq,Clone,Default,Debug)]
 pub struct Material {
     // message fields
-    // @@protoc_insertion_point(field:Material.tid)
-    pub tid: u32,
-    // @@protoc_insertion_point(field:Material.num)
-    pub num: u32,
+    // @@protoc_insertion_point(field:Material.count)
+    pub count: u32,
+    // @@protoc_insertion_point(field:Material.delete_info)
+    pub delete_info: ::protobuf::MessageField<super::MaterialDeleteInfo::MaterialDeleteInfo>,
     // special fields
     // @@protoc_insertion_point(special_field:Material.special_fields)
     pub special_fields: ::protobuf::SpecialFields,
@@ -53,14 +53,14 @@ impl Material {
         let mut fields = ::std::vec::Vec::with_capacity(2);
         let mut oneofs = ::std::vec::Vec::with_capacity(0);
         fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
-            "tid",
-            |m: &Material| { &m.tid },
-            |m: &mut Material| { &mut m.tid },
+            "count",
+            |m: &Material| { &m.count },
+            |m: &mut Material| { &mut m.count },
         ));
-        fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
-            "num",
-            |m: &Material| { &m.num },
-            |m: &mut Material| { &mut m.num },
+        fields.push(::protobuf::reflect::rt::v2::make_message_field_accessor::<_, super::MaterialDeleteInfo::MaterialDeleteInfo>(
+            "delete_info",
+            |m: &Material| { &m.delete_info },
+            |m: &mut Material| { &mut m.delete_info },
         ));
         ::protobuf::reflect::GeneratedMessageDescriptorData::new_2::<Material>(
             "Material",
@@ -80,11 +80,11 @@ impl ::protobuf::Message for Material {
     fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream<'_>) -> ::protobuf::Result<()> {
         while let Some(tag) = is.read_raw_tag_or_eof()? {
             match tag {
-                48 => {
-                    self.tid = is.read_uint32()?;
+                8 => {
+                    self.count = is.read_uint32()?;
                 },
-                64 => {
-                    self.num = is.read_uint32()?;
+                18 => {
+                    ::protobuf::rt::read_singular_message_into_field(is, &mut self.delete_info)?;
                 },
                 tag => {
                     ::protobuf::rt::read_unknown_or_skip_group(tag, is, self.special_fields.mut_unknown_fields())?;
@@ -98,11 +98,12 @@ impl ::protobuf::Message for Material {
     #[allow(unused_variables)]
     fn compute_size(&self) -> u64 {
         let mut my_size = 0;
-        if self.tid != 0 {
-            my_size += ::protobuf::rt::uint32_size(6, self.tid);
+        if self.count != 0 {
+            my_size += ::protobuf::rt::uint32_size(1, self.count);
         }
-        if self.num != 0 {
-            my_size += ::protobuf::rt::uint32_size(8, self.num);
+        if let Some(v) = self.delete_info.as_ref() {
+            let len = v.compute_size();
+            my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
         }
         my_size += ::protobuf::rt::unknown_fields_size(self.special_fields.unknown_fields());
         self.special_fields.cached_size().set(my_size as u32);
@@ -110,11 +111,11 @@ impl ::protobuf::Message for Material {
     }
 
     fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream<'_>) -> ::protobuf::Result<()> {
-        if self.tid != 0 {
-            os.write_uint32(6, self.tid)?;
+        if self.count != 0 {
+            os.write_uint32(1, self.count)?;
         }
-        if self.num != 0 {
-            os.write_uint32(8, self.num)?;
+        if let Some(v) = self.delete_info.as_ref() {
+            ::protobuf::rt::write_message_field_with_cached_size(2, v, os)?;
         }
         os.write_unknown_fields(self.special_fields.unknown_fields())?;
         ::std::result::Result::Ok(())
@@ -133,15 +134,15 @@ impl ::protobuf::Message for Material {
     }
 
     fn clear(&mut self) {
-        self.tid = 0;
-        self.num = 0;
+        self.count = 0;
+        self.delete_info.clear();
         self.special_fields.clear();
     }
 
     fn default_instance() -> &'static Material {
         static instance: Material = Material {
-            tid: 0,
-            num: 0,
+            count: 0,
+            delete_info: ::protobuf::MessageField::none(),
             special_fields: ::protobuf::SpecialFields::new(),
         };
         &instance
@@ -166,9 +167,10 @@ impl ::protobuf::reflect::ProtobufValue for Material {
 }
 
 static file_descriptor_proto_data: &'static [u8] = b"\
-    \n\x0eMaterial.proto\".\n\x08Material\x12\x10\n\x03tid\x18\x06\x20\x01(\
-    \rR\x03tid\x12\x10\n\x03num\x18\x08\x20\x01(\rR\x03numB\x15\n\x13emu.lun\
-    arcore.protob\x06proto3\
+    \n\x0eMaterial.proto\x1a\x18MaterialDeleteInfo.proto\"V\n\x08Material\
+    \x12\x14\n\x05count\x18\x01\x20\x01(\rR\x05count\x124\n\x0bdelete_info\
+    \x18\x02\x20\x01(\x0b2\x13.MaterialDeleteInfoR\ndeleteInfoB\x1b\n\x19emu\
+    .grasscutter.net.protob\x06proto3\
 ";
 
 /// `FileDescriptorProto` object which was a source for this generated file
@@ -185,7 +187,8 @@ pub fn file_descriptor() -> &'static ::protobuf::reflect::FileDescriptor {
     static file_descriptor: ::protobuf::rt::Lazy<::protobuf::reflect::FileDescriptor> = ::protobuf::rt::Lazy::new();
     file_descriptor.get(|| {
         let generated_file_descriptor = generated_file_descriptor_lazy.get(|| {
-            let mut deps = ::std::vec::Vec::with_capacity(0);
+            let mut deps = ::std::vec::Vec::with_capacity(1);
+            deps.push(super::MaterialDeleteInfo::file_descriptor().clone());
             let mut messages = ::std::vec::Vec::with_capacity(1);
             messages.push(Material::generated_message_descriptor_data());
             let mut enums = ::std::vec::Vec::with_capacity(0);

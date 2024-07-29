@@ -30,14 +30,12 @@ const _PROTOBUF_VERSION_CHECK: () = ::protobuf::VERSION_3_4_0;
 pub enum AvatarType {
     // @@protoc_insertion_point(enum_value:AvatarType.AVATAR_TYPE_NONE)
     AVATAR_TYPE_NONE = 0,
-    // @@protoc_insertion_point(enum_value:AvatarType.AVATAR_TRIAL_TYPE)
-    AVATAR_TRIAL_TYPE = 1,
-    // @@protoc_insertion_point(enum_value:AvatarType.AVATAR_LIMIT_TYPE)
-    AVATAR_LIMIT_TYPE = 2,
-    // @@protoc_insertion_point(enum_value:AvatarType.AVATAR_FORMAL_TYPE)
-    AVATAR_FORMAL_TYPE = 3,
-    // @@protoc_insertion_point(enum_value:AvatarType.AVATAR_ASSIST_TYPE)
-    AVATAR_ASSIST_TYPE = 4,
+    // @@protoc_insertion_point(enum_value:AvatarType.AVATAR_TYPE_FORMAL)
+    AVATAR_TYPE_FORMAL = 1,
+    // @@protoc_insertion_point(enum_value:AvatarType.AVATAR_TYPE_TRIAL)
+    AVATAR_TYPE_TRIAL = 2,
+    // @@protoc_insertion_point(enum_value:AvatarType.AVATAR_TYPE_MIRROR)
+    AVATAR_TYPE_MIRROR = 3,
 }
 
 impl ::protobuf::Enum for AvatarType {
@@ -50,10 +48,9 @@ impl ::protobuf::Enum for AvatarType {
     fn from_i32(value: i32) -> ::std::option::Option<AvatarType> {
         match value {
             0 => ::std::option::Option::Some(AvatarType::AVATAR_TYPE_NONE),
-            1 => ::std::option::Option::Some(AvatarType::AVATAR_TRIAL_TYPE),
-            2 => ::std::option::Option::Some(AvatarType::AVATAR_LIMIT_TYPE),
-            3 => ::std::option::Option::Some(AvatarType::AVATAR_FORMAL_TYPE),
-            4 => ::std::option::Option::Some(AvatarType::AVATAR_ASSIST_TYPE),
+            1 => ::std::option::Option::Some(AvatarType::AVATAR_TYPE_FORMAL),
+            2 => ::std::option::Option::Some(AvatarType::AVATAR_TYPE_TRIAL),
+            3 => ::std::option::Option::Some(AvatarType::AVATAR_TYPE_MIRROR),
             _ => ::std::option::Option::None
         }
     }
@@ -61,20 +58,18 @@ impl ::protobuf::Enum for AvatarType {
     fn from_str(str: &str) -> ::std::option::Option<AvatarType> {
         match str {
             "AVATAR_TYPE_NONE" => ::std::option::Option::Some(AvatarType::AVATAR_TYPE_NONE),
-            "AVATAR_TRIAL_TYPE" => ::std::option::Option::Some(AvatarType::AVATAR_TRIAL_TYPE),
-            "AVATAR_LIMIT_TYPE" => ::std::option::Option::Some(AvatarType::AVATAR_LIMIT_TYPE),
-            "AVATAR_FORMAL_TYPE" => ::std::option::Option::Some(AvatarType::AVATAR_FORMAL_TYPE),
-            "AVATAR_ASSIST_TYPE" => ::std::option::Option::Some(AvatarType::AVATAR_ASSIST_TYPE),
+            "AVATAR_TYPE_FORMAL" => ::std::option::Option::Some(AvatarType::AVATAR_TYPE_FORMAL),
+            "AVATAR_TYPE_TRIAL" => ::std::option::Option::Some(AvatarType::AVATAR_TYPE_TRIAL),
+            "AVATAR_TYPE_MIRROR" => ::std::option::Option::Some(AvatarType::AVATAR_TYPE_MIRROR),
             _ => ::std::option::Option::None
         }
     }
 
     const VALUES: &'static [AvatarType] = &[
         AvatarType::AVATAR_TYPE_NONE,
-        AvatarType::AVATAR_TRIAL_TYPE,
-        AvatarType::AVATAR_LIMIT_TYPE,
-        AvatarType::AVATAR_FORMAL_TYPE,
-        AvatarType::AVATAR_ASSIST_TYPE,
+        AvatarType::AVATAR_TYPE_FORMAL,
+        AvatarType::AVATAR_TYPE_TRIAL,
+        AvatarType::AVATAR_TYPE_MIRROR,
     ];
 }
 
@@ -103,10 +98,10 @@ impl AvatarType {
 }
 
 static file_descriptor_proto_data: &'static [u8] = b"\
-    \n\x10AvatarType.proto*\x80\x01\n\nAvatarType\x12\x14\n\x10AVATAR_TYPE_N\
-    ONE\x10\0\x12\x15\n\x11AVATAR_TRIAL_TYPE\x10\x01\x12\x15\n\x11AVATAR_LIM\
-    IT_TYPE\x10\x02\x12\x16\n\x12AVATAR_FORMAL_TYPE\x10\x03\x12\x16\n\x12AVA\
-    TAR_ASSIST_TYPE\x10\x04B\x15\n\x13emu.lunarcore.protob\x06proto3\
+    \n\x10AvatarType.proto*i\n\nAvatarType\x12\x14\n\x10AVATAR_TYPE_NONE\x10\
+    \0\x12\x16\n\x12AVATAR_TYPE_FORMAL\x10\x01\x12\x15\n\x11AVATAR_TYPE_TRIA\
+    L\x10\x02\x12\x16\n\x12AVATAR_TYPE_MIRROR\x10\x03B\x1b\n\x19emu.grasscut\
+    ter.net.protob\x06proto3\
 ";
 
 /// `FileDescriptorProto` object which was a source for this generated file

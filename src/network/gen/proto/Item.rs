@@ -31,18 +31,10 @@ pub struct Item {
     // message fields
     // @@protoc_insertion_point(field:Item.item_id)
     pub item_id: u32,
-    // @@protoc_insertion_point(field:Item.level)
-    pub level: u32,
-    // @@protoc_insertion_point(field:Item.num)
-    pub num: u32,
-    // @@protoc_insertion_point(field:Item.main_affix_id)
-    pub main_affix_id: u32,
-    // @@protoc_insertion_point(field:Item.rank)
-    pub rank: u32,
-    // @@protoc_insertion_point(field:Item.promotion)
-    pub promotion: u32,
-    // @@protoc_insertion_point(field:Item.unique_id)
-    pub unique_id: u32,
+    // @@protoc_insertion_point(field:Item.guid)
+    pub guid: u64,
+    // message oneof groups
+    pub detail: ::std::option::Option<item::Detail>,
     // special fields
     // @@protoc_insertion_point(special_field:Item.special_fields)
     pub special_fields: ::protobuf::SpecialFields,
@@ -59,44 +51,188 @@ impl Item {
         ::std::default::Default::default()
     }
 
+    // .Material material = 5;
+
+    pub fn material(&self) -> &super::Material::Material {
+        match self.detail {
+            ::std::option::Option::Some(item::Detail::Material(ref v)) => v,
+            _ => <super::Material::Material as ::protobuf::Message>::default_instance(),
+        }
+    }
+
+    pub fn clear_material(&mut self) {
+        self.detail = ::std::option::Option::None;
+    }
+
+    pub fn has_material(&self) -> bool {
+        match self.detail {
+            ::std::option::Option::Some(item::Detail::Material(..)) => true,
+            _ => false,
+        }
+    }
+
+    // Param is passed by value, moved
+    pub fn set_material(&mut self, v: super::Material::Material) {
+        self.detail = ::std::option::Option::Some(item::Detail::Material(v))
+    }
+
+    // Mutable pointer to the field.
+    pub fn mut_material(&mut self) -> &mut super::Material::Material {
+        if let ::std::option::Option::Some(item::Detail::Material(_)) = self.detail {
+        } else {
+            self.detail = ::std::option::Option::Some(item::Detail::Material(super::Material::Material::new()));
+        }
+        match self.detail {
+            ::std::option::Option::Some(item::Detail::Material(ref mut v)) => v,
+            _ => panic!(),
+        }
+    }
+
+    // Take field
+    pub fn take_material(&mut self) -> super::Material::Material {
+        if self.has_material() {
+            match self.detail.take() {
+                ::std::option::Option::Some(item::Detail::Material(v)) => v,
+                _ => panic!(),
+            }
+        } else {
+            super::Material::Material::new()
+        }
+    }
+
+    // .Equip equip = 6;
+
+    pub fn equip(&self) -> &super::Equip::Equip {
+        match self.detail {
+            ::std::option::Option::Some(item::Detail::Equip(ref v)) => v,
+            _ => <super::Equip::Equip as ::protobuf::Message>::default_instance(),
+        }
+    }
+
+    pub fn clear_equip(&mut self) {
+        self.detail = ::std::option::Option::None;
+    }
+
+    pub fn has_equip(&self) -> bool {
+        match self.detail {
+            ::std::option::Option::Some(item::Detail::Equip(..)) => true,
+            _ => false,
+        }
+    }
+
+    // Param is passed by value, moved
+    pub fn set_equip(&mut self, v: super::Equip::Equip) {
+        self.detail = ::std::option::Option::Some(item::Detail::Equip(v))
+    }
+
+    // Mutable pointer to the field.
+    pub fn mut_equip(&mut self) -> &mut super::Equip::Equip {
+        if let ::std::option::Option::Some(item::Detail::Equip(_)) = self.detail {
+        } else {
+            self.detail = ::std::option::Option::Some(item::Detail::Equip(super::Equip::Equip::new()));
+        }
+        match self.detail {
+            ::std::option::Option::Some(item::Detail::Equip(ref mut v)) => v,
+            _ => panic!(),
+        }
+    }
+
+    // Take field
+    pub fn take_equip(&mut self) -> super::Equip::Equip {
+        if self.has_equip() {
+            match self.detail.take() {
+                ::std::option::Option::Some(item::Detail::Equip(v)) => v,
+                _ => panic!(),
+            }
+        } else {
+            super::Equip::Equip::new()
+        }
+    }
+
+    // .Furniture furniture = 7;
+
+    pub fn furniture(&self) -> &super::Furniture::Furniture {
+        match self.detail {
+            ::std::option::Option::Some(item::Detail::Furniture(ref v)) => v,
+            _ => <super::Furniture::Furniture as ::protobuf::Message>::default_instance(),
+        }
+    }
+
+    pub fn clear_furniture(&mut self) {
+        self.detail = ::std::option::Option::None;
+    }
+
+    pub fn has_furniture(&self) -> bool {
+        match self.detail {
+            ::std::option::Option::Some(item::Detail::Furniture(..)) => true,
+            _ => false,
+        }
+    }
+
+    // Param is passed by value, moved
+    pub fn set_furniture(&mut self, v: super::Furniture::Furniture) {
+        self.detail = ::std::option::Option::Some(item::Detail::Furniture(v))
+    }
+
+    // Mutable pointer to the field.
+    pub fn mut_furniture(&mut self) -> &mut super::Furniture::Furniture {
+        if let ::std::option::Option::Some(item::Detail::Furniture(_)) = self.detail {
+        } else {
+            self.detail = ::std::option::Option::Some(item::Detail::Furniture(super::Furniture::Furniture::new()));
+        }
+        match self.detail {
+            ::std::option::Option::Some(item::Detail::Furniture(ref mut v)) => v,
+            _ => panic!(),
+        }
+    }
+
+    // Take field
+    pub fn take_furniture(&mut self) -> super::Furniture::Furniture {
+        if self.has_furniture() {
+            match self.detail.take() {
+                ::std::option::Option::Some(item::Detail::Furniture(v)) => v,
+                _ => panic!(),
+            }
+        } else {
+            super::Furniture::Furniture::new()
+        }
+    }
+
     fn generated_message_descriptor_data() -> ::protobuf::reflect::GeneratedMessageDescriptorData {
-        let mut fields = ::std::vec::Vec::with_capacity(7);
-        let mut oneofs = ::std::vec::Vec::with_capacity(0);
+        let mut fields = ::std::vec::Vec::with_capacity(5);
+        let mut oneofs = ::std::vec::Vec::with_capacity(1);
         fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
             "item_id",
             |m: &Item| { &m.item_id },
             |m: &mut Item| { &mut m.item_id },
         ));
         fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
-            "level",
-            |m: &Item| { &m.level },
-            |m: &mut Item| { &mut m.level },
+            "guid",
+            |m: &Item| { &m.guid },
+            |m: &mut Item| { &mut m.guid },
         ));
-        fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
-            "num",
-            |m: &Item| { &m.num },
-            |m: &mut Item| { &mut m.num },
+        fields.push(::protobuf::reflect::rt::v2::make_oneof_message_has_get_mut_set_accessor::<_, super::Material::Material>(
+            "material",
+            Item::has_material,
+            Item::material,
+            Item::mut_material,
+            Item::set_material,
         ));
-        fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
-            "main_affix_id",
-            |m: &Item| { &m.main_affix_id },
-            |m: &mut Item| { &mut m.main_affix_id },
+        fields.push(::protobuf::reflect::rt::v2::make_oneof_message_has_get_mut_set_accessor::<_, super::Equip::Equip>(
+            "equip",
+            Item::has_equip,
+            Item::equip,
+            Item::mut_equip,
+            Item::set_equip,
         ));
-        fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
-            "rank",
-            |m: &Item| { &m.rank },
-            |m: &mut Item| { &mut m.rank },
+        fields.push(::protobuf::reflect::rt::v2::make_oneof_message_has_get_mut_set_accessor::<_, super::Furniture::Furniture>(
+            "furniture",
+            Item::has_furniture,
+            Item::furniture,
+            Item::mut_furniture,
+            Item::set_furniture,
         ));
-        fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
-            "promotion",
-            |m: &Item| { &m.promotion },
-            |m: &mut Item| { &mut m.promotion },
-        ));
-        fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
-            "unique_id",
-            |m: &Item| { &m.unique_id },
-            |m: &mut Item| { &mut m.unique_id },
-        ));
+        oneofs.push(item::Detail::generated_oneof_descriptor_data());
         ::protobuf::reflect::GeneratedMessageDescriptorData::new_2::<Item>(
             "Item",
             fields,
@@ -115,26 +251,20 @@ impl ::protobuf::Message for Item {
     fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream<'_>) -> ::protobuf::Result<()> {
         while let Some(tag) = is.read_raw_tag_or_eof()? {
             match tag {
-                48 => {
+                8 => {
                     self.item_id = is.read_uint32()?;
                 },
-                24 => {
-                    self.level = is.read_uint32()?;
+                16 => {
+                    self.guid = is.read_uint64()?;
                 },
-                56 => {
-                    self.num = is.read_uint32()?;
+                42 => {
+                    self.detail = ::std::option::Option::Some(item::Detail::Material(is.read_message()?));
                 },
-                8 => {
-                    self.main_affix_id = is.read_uint32()?;
+                50 => {
+                    self.detail = ::std::option::Option::Some(item::Detail::Equip(is.read_message()?));
                 },
-                72 => {
-                    self.rank = is.read_uint32()?;
-                },
-                96 => {
-                    self.promotion = is.read_uint32()?;
-                },
-                112 => {
-                    self.unique_id = is.read_uint32()?;
+                58 => {
+                    self.detail = ::std::option::Option::Some(item::Detail::Furniture(is.read_message()?));
                 },
                 tag => {
                     ::protobuf::rt::read_unknown_or_skip_group(tag, is, self.special_fields.mut_unknown_fields())?;
@@ -149,25 +279,26 @@ impl ::protobuf::Message for Item {
     fn compute_size(&self) -> u64 {
         let mut my_size = 0;
         if self.item_id != 0 {
-            my_size += ::protobuf::rt::uint32_size(6, self.item_id);
+            my_size += ::protobuf::rt::uint32_size(1, self.item_id);
         }
-        if self.level != 0 {
-            my_size += ::protobuf::rt::uint32_size(3, self.level);
+        if self.guid != 0 {
+            my_size += ::protobuf::rt::uint64_size(2, self.guid);
         }
-        if self.num != 0 {
-            my_size += ::protobuf::rt::uint32_size(7, self.num);
-        }
-        if self.main_affix_id != 0 {
-            my_size += ::protobuf::rt::uint32_size(1, self.main_affix_id);
-        }
-        if self.rank != 0 {
-            my_size += ::protobuf::rt::uint32_size(9, self.rank);
-        }
-        if self.promotion != 0 {
-            my_size += ::protobuf::rt::uint32_size(12, self.promotion);
-        }
-        if self.unique_id != 0 {
-            my_size += ::protobuf::rt::uint32_size(14, self.unique_id);
+        if let ::std::option::Option::Some(ref v) = self.detail {
+            match v {
+                &item::Detail::Material(ref v) => {
+                    let len = v.compute_size();
+                    my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
+                },
+                &item::Detail::Equip(ref v) => {
+                    let len = v.compute_size();
+                    my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
+                },
+                &item::Detail::Furniture(ref v) => {
+                    let len = v.compute_size();
+                    my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
+                },
+            };
         }
         my_size += ::protobuf::rt::unknown_fields_size(self.special_fields.unknown_fields());
         self.special_fields.cached_size().set(my_size as u32);
@@ -176,25 +307,23 @@ impl ::protobuf::Message for Item {
 
     fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream<'_>) -> ::protobuf::Result<()> {
         if self.item_id != 0 {
-            os.write_uint32(6, self.item_id)?;
+            os.write_uint32(1, self.item_id)?;
         }
-        if self.level != 0 {
-            os.write_uint32(3, self.level)?;
+        if self.guid != 0 {
+            os.write_uint64(2, self.guid)?;
         }
-        if self.num != 0 {
-            os.write_uint32(7, self.num)?;
-        }
-        if self.main_affix_id != 0 {
-            os.write_uint32(1, self.main_affix_id)?;
-        }
-        if self.rank != 0 {
-            os.write_uint32(9, self.rank)?;
-        }
-        if self.promotion != 0 {
-            os.write_uint32(12, self.promotion)?;
-        }
-        if self.unique_id != 0 {
-            os.write_uint32(14, self.unique_id)?;
+        if let ::std::option::Option::Some(ref v) = self.detail {
+            match v {
+                &item::Detail::Material(ref v) => {
+                    ::protobuf::rt::write_message_field_with_cached_size(5, v, os)?;
+                },
+                &item::Detail::Equip(ref v) => {
+                    ::protobuf::rt::write_message_field_with_cached_size(6, v, os)?;
+                },
+                &item::Detail::Furniture(ref v) => {
+                    ::protobuf::rt::write_message_field_with_cached_size(7, v, os)?;
+                },
+            };
         }
         os.write_unknown_fields(self.special_fields.unknown_fields())?;
         ::std::result::Result::Ok(())
@@ -214,24 +343,18 @@ impl ::protobuf::Message for Item {
 
     fn clear(&mut self) {
         self.item_id = 0;
-        self.level = 0;
-        self.num = 0;
-        self.main_affix_id = 0;
-        self.rank = 0;
-        self.promotion = 0;
-        self.unique_id = 0;
+        self.guid = 0;
+        self.detail = ::std::option::Option::None;
+        self.detail = ::std::option::Option::None;
+        self.detail = ::std::option::Option::None;
         self.special_fields.clear();
     }
 
     fn default_instance() -> &'static Item {
         static instance: Item = Item {
             item_id: 0,
-            level: 0,
-            num: 0,
-            main_affix_id: 0,
-            rank: 0,
-            promotion: 0,
-            unique_id: 0,
+            guid: 0,
+            detail: ::std::option::Option::None,
             special_fields: ::protobuf::SpecialFields::new(),
         };
         &instance
@@ -255,14 +378,46 @@ impl ::protobuf::reflect::ProtobufValue for Item {
     type RuntimeType = ::protobuf::reflect::rt::RuntimeTypeMessage<Self>;
 }
 
+/// Nested message and enums of message `Item`
+pub mod item {
+
+    #[derive(Clone,PartialEq,Debug)]
+    #[non_exhaustive]
+    // @@protoc_insertion_point(oneof:Item.detail)
+    pub enum Detail {
+        // @@protoc_insertion_point(oneof_field:Item.material)
+        Material(super::super::Material::Material),
+        // @@protoc_insertion_point(oneof_field:Item.equip)
+        Equip(super::super::Equip::Equip),
+        // @@protoc_insertion_point(oneof_field:Item.furniture)
+        Furniture(super::super::Furniture::Furniture),
+    }
+
+    impl ::protobuf::Oneof for Detail {
+    }
+
+    impl ::protobuf::OneofFull for Detail {
+        fn descriptor() -> ::protobuf::reflect::OneofDescriptor {
+            static descriptor: ::protobuf::rt::Lazy<::protobuf::reflect::OneofDescriptor> = ::protobuf::rt::Lazy::new();
+            descriptor.get(|| <super::Item as ::protobuf::MessageFull>::descriptor().oneof_by_name("detail").unwrap()).clone()
+        }
+    }
+
+    impl Detail {
+        pub(in super) fn generated_oneof_descriptor_data() -> ::protobuf::reflect::GeneratedOneofDescriptorData {
+            ::protobuf::reflect::GeneratedOneofDescriptorData::new::<Detail>("detail")
+        }
+    }
+}
+
 static file_descriptor_proto_data: &'static [u8] = b"\
-    \n\nItem.proto\"\xba\x01\n\x04Item\x12\x17\n\x07item_id\x18\x06\x20\x01(\
-    \rR\x06itemId\x12\x14\n\x05level\x18\x03\x20\x01(\rR\x05level\x12\x10\n\
-    \x03num\x18\x07\x20\x01(\rR\x03num\x12\"\n\rmain_affix_id\x18\x01\x20\
-    \x01(\rR\x0bmainAffixId\x12\x12\n\x04rank\x18\t\x20\x01(\rR\x04rank\x12\
-    \x1c\n\tpromotion\x18\x0c\x20\x01(\rR\tpromotion\x12\x1b\n\tunique_id\
-    \x18\x0e\x20\x01(\rR\x08uniqueIdB\x15\n\x13emu.lunarcore.protob\x06proto\
-    3\
+    \n\nItem.proto\x1a\x0eMaterial.proto\x1a\x0bEquip.proto\x1a\x0fFurniture\
+    .proto\"\xb2\x01\n\x04Item\x12\x17\n\x07item_id\x18\x01\x20\x01(\rR\x06i\
+    temId\x12\x12\n\x04guid\x18\x02\x20\x01(\x04R\x04guid\x12'\n\x08material\
+    \x18\x05\x20\x01(\x0b2\t.MaterialH\0R\x08material\x12\x1e\n\x05equip\x18\
+    \x06\x20\x01(\x0b2\x06.EquipH\0R\x05equip\x12*\n\tfurniture\x18\x07\x20\
+    \x01(\x0b2\n.FurnitureH\0R\tfurnitureB\x08\n\x06detailB\x1b\n\x19emu.gra\
+    sscutter.net.protob\x06proto3\
 ";
 
 /// `FileDescriptorProto` object which was a source for this generated file
@@ -279,7 +434,10 @@ pub fn file_descriptor() -> &'static ::protobuf::reflect::FileDescriptor {
     static file_descriptor: ::protobuf::rt::Lazy<::protobuf::reflect::FileDescriptor> = ::protobuf::rt::Lazy::new();
     file_descriptor.get(|| {
         let generated_file_descriptor = generated_file_descriptor_lazy.get(|| {
-            let mut deps = ::std::vec::Vec::with_capacity(0);
+            let mut deps = ::std::vec::Vec::with_capacity(3);
+            deps.push(super::Material::file_descriptor().clone());
+            deps.push(super::Equip::file_descriptor().clone());
+            deps.push(super::Furniture::file_descriptor().clone());
             let mut messages = ::std::vec::Vec::with_capacity(1);
             messages.push(Item::generated_message_descriptor_data());
             let mut enums = ::std::vec::Vec::with_capacity(0);

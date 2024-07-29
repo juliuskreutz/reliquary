@@ -29,24 +29,38 @@ const _PROTOBUF_VERSION_CHECK: () = ::protobuf::VERSION_3_4_0;
 #[derive(PartialEq,Clone,Default,Debug)]
 pub struct SceneEntityInfo {
     // message fields
+    // @@protoc_insertion_point(field:SceneEntityInfo.entity_type)
+    pub entity_type: ::protobuf::EnumOrUnknown<super::ProtEntityType::ProtEntityType>,
     // @@protoc_insertion_point(field:SceneEntityInfo.entity_id)
     pub entity_id: u32,
-    // @@protoc_insertion_point(field:SceneEntityInfo.group_id)
-    pub group_id: u32,
-    // @@protoc_insertion_point(field:SceneEntityInfo.motion)
-    pub motion: ::protobuf::MessageField<super::MotionInfo::MotionInfo>,
-    // @@protoc_insertion_point(field:SceneEntityInfo.inst_id)
-    pub inst_id: u32,
-    // @@protoc_insertion_point(field:SceneEntityInfo.actor)
-    pub actor: ::protobuf::MessageField<super::SceneActorInfo::SceneActorInfo>,
-    // @@protoc_insertion_point(field:SceneEntityInfo.npc_monster)
-    pub npc_monster: ::protobuf::MessageField<super::SceneNpcMonsterInfo::SceneNpcMonsterInfo>,
-    // @@protoc_insertion_point(field:SceneEntityInfo.npc)
-    pub npc: ::protobuf::MessageField<super::SceneNpcInfo::SceneNpcInfo>,
-    // @@protoc_insertion_point(field:SceneEntityInfo.prop)
-    pub prop: ::protobuf::MessageField<super::ScenePropInfo::ScenePropInfo>,
-    // @@protoc_insertion_point(field:SceneEntityInfo.summon_unit)
-    pub summon_unit: ::protobuf::MessageField<super::SceneSummonUnitInfo::SceneSummonUnitInfo>,
+    // @@protoc_insertion_point(field:SceneEntityInfo.name)
+    pub name: ::std::string::String,
+    // @@protoc_insertion_point(field:SceneEntityInfo.motion_info)
+    pub motion_info: ::protobuf::MessageField<super::MotionInfo::MotionInfo>,
+    // @@protoc_insertion_point(field:SceneEntityInfo.prop_list)
+    pub prop_list: ::std::vec::Vec<super::PropPair::PropPair>,
+    // @@protoc_insertion_point(field:SceneEntityInfo.fight_prop_list)
+    pub fight_prop_list: ::std::vec::Vec<super::FightPropPair::FightPropPair>,
+    // @@protoc_insertion_point(field:SceneEntityInfo.life_state)
+    pub life_state: u32,
+    // @@protoc_insertion_point(field:SceneEntityInfo.animator_para_list)
+    pub animator_para_list: ::std::vec::Vec<super::AnimatorParameterValueInfoPair::AnimatorParameterValueInfoPair>,
+    // @@protoc_insertion_point(field:SceneEntityInfo.last_move_scene_time_ms)
+    pub last_move_scene_time_ms: u32,
+    // @@protoc_insertion_point(field:SceneEntityInfo.last_move_reliable_seq)
+    pub last_move_reliable_seq: u32,
+    // @@protoc_insertion_point(field:SceneEntityInfo.entity_client_data)
+    pub entity_client_data: ::protobuf::MessageField<super::EntityClientData::EntityClientData>,
+    // @@protoc_insertion_point(field:SceneEntityInfo.entity_environment_info_list)
+    pub entity_environment_info_list: ::std::vec::Vec<super::EntityEnvironmentInfo::EntityEnvironmentInfo>,
+    // @@protoc_insertion_point(field:SceneEntityInfo.entity_authority_info)
+    pub entity_authority_info: ::protobuf::MessageField<super::EntityAuthorityInfo::EntityAuthorityInfo>,
+    // @@protoc_insertion_point(field:SceneEntityInfo.tag_list)
+    pub tag_list: ::std::vec::Vec<::std::string::String>,
+    // @@protoc_insertion_point(field:SceneEntityInfo.server_buff_list)
+    pub server_buff_list: ::std::vec::Vec<super::ServerBuff::ServerBuff>,
+    // message oneof groups
+    pub entity: ::std::option::Option<scene_entity_info::Entity>,
     // special fields
     // @@protoc_insertion_point(special_field:SceneEntityInfo.special_fields)
     pub special_fields: ::protobuf::SpecialFields,
@@ -63,54 +77,309 @@ impl SceneEntityInfo {
         ::std::default::Default::default()
     }
 
+    // .SceneAvatarInfo avatar = 10;
+
+    pub fn avatar(&self) -> &super::SceneAvatarInfo::SceneAvatarInfo {
+        match self.entity {
+            ::std::option::Option::Some(scene_entity_info::Entity::Avatar(ref v)) => v,
+            _ => <super::SceneAvatarInfo::SceneAvatarInfo as ::protobuf::Message>::default_instance(),
+        }
+    }
+
+    pub fn clear_avatar(&mut self) {
+        self.entity = ::std::option::Option::None;
+    }
+
+    pub fn has_avatar(&self) -> bool {
+        match self.entity {
+            ::std::option::Option::Some(scene_entity_info::Entity::Avatar(..)) => true,
+            _ => false,
+        }
+    }
+
+    // Param is passed by value, moved
+    pub fn set_avatar(&mut self, v: super::SceneAvatarInfo::SceneAvatarInfo) {
+        self.entity = ::std::option::Option::Some(scene_entity_info::Entity::Avatar(v))
+    }
+
+    // Mutable pointer to the field.
+    pub fn mut_avatar(&mut self) -> &mut super::SceneAvatarInfo::SceneAvatarInfo {
+        if let ::std::option::Option::Some(scene_entity_info::Entity::Avatar(_)) = self.entity {
+        } else {
+            self.entity = ::std::option::Option::Some(scene_entity_info::Entity::Avatar(super::SceneAvatarInfo::SceneAvatarInfo::new()));
+        }
+        match self.entity {
+            ::std::option::Option::Some(scene_entity_info::Entity::Avatar(ref mut v)) => v,
+            _ => panic!(),
+        }
+    }
+
+    // Take field
+    pub fn take_avatar(&mut self) -> super::SceneAvatarInfo::SceneAvatarInfo {
+        if self.has_avatar() {
+            match self.entity.take() {
+                ::std::option::Option::Some(scene_entity_info::Entity::Avatar(v)) => v,
+                _ => panic!(),
+            }
+        } else {
+            super::SceneAvatarInfo::SceneAvatarInfo::new()
+        }
+    }
+
+    // .SceneMonsterInfo monster = 11;
+
+    pub fn monster(&self) -> &super::SceneMonsterInfo::SceneMonsterInfo {
+        match self.entity {
+            ::std::option::Option::Some(scene_entity_info::Entity::Monster(ref v)) => v,
+            _ => <super::SceneMonsterInfo::SceneMonsterInfo as ::protobuf::Message>::default_instance(),
+        }
+    }
+
+    pub fn clear_monster(&mut self) {
+        self.entity = ::std::option::Option::None;
+    }
+
+    pub fn has_monster(&self) -> bool {
+        match self.entity {
+            ::std::option::Option::Some(scene_entity_info::Entity::Monster(..)) => true,
+            _ => false,
+        }
+    }
+
+    // Param is passed by value, moved
+    pub fn set_monster(&mut self, v: super::SceneMonsterInfo::SceneMonsterInfo) {
+        self.entity = ::std::option::Option::Some(scene_entity_info::Entity::Monster(v))
+    }
+
+    // Mutable pointer to the field.
+    pub fn mut_monster(&mut self) -> &mut super::SceneMonsterInfo::SceneMonsterInfo {
+        if let ::std::option::Option::Some(scene_entity_info::Entity::Monster(_)) = self.entity {
+        } else {
+            self.entity = ::std::option::Option::Some(scene_entity_info::Entity::Monster(super::SceneMonsterInfo::SceneMonsterInfo::new()));
+        }
+        match self.entity {
+            ::std::option::Option::Some(scene_entity_info::Entity::Monster(ref mut v)) => v,
+            _ => panic!(),
+        }
+    }
+
+    // Take field
+    pub fn take_monster(&mut self) -> super::SceneMonsterInfo::SceneMonsterInfo {
+        if self.has_monster() {
+            match self.entity.take() {
+                ::std::option::Option::Some(scene_entity_info::Entity::Monster(v)) => v,
+                _ => panic!(),
+            }
+        } else {
+            super::SceneMonsterInfo::SceneMonsterInfo::new()
+        }
+    }
+
+    // .SceneNpcInfo npc = 12;
+
+    pub fn npc(&self) -> &super::SceneNpcInfo::SceneNpcInfo {
+        match self.entity {
+            ::std::option::Option::Some(scene_entity_info::Entity::Npc(ref v)) => v,
+            _ => <super::SceneNpcInfo::SceneNpcInfo as ::protobuf::Message>::default_instance(),
+        }
+    }
+
+    pub fn clear_npc(&mut self) {
+        self.entity = ::std::option::Option::None;
+    }
+
+    pub fn has_npc(&self) -> bool {
+        match self.entity {
+            ::std::option::Option::Some(scene_entity_info::Entity::Npc(..)) => true,
+            _ => false,
+        }
+    }
+
+    // Param is passed by value, moved
+    pub fn set_npc(&mut self, v: super::SceneNpcInfo::SceneNpcInfo) {
+        self.entity = ::std::option::Option::Some(scene_entity_info::Entity::Npc(v))
+    }
+
+    // Mutable pointer to the field.
+    pub fn mut_npc(&mut self) -> &mut super::SceneNpcInfo::SceneNpcInfo {
+        if let ::std::option::Option::Some(scene_entity_info::Entity::Npc(_)) = self.entity {
+        } else {
+            self.entity = ::std::option::Option::Some(scene_entity_info::Entity::Npc(super::SceneNpcInfo::SceneNpcInfo::new()));
+        }
+        match self.entity {
+            ::std::option::Option::Some(scene_entity_info::Entity::Npc(ref mut v)) => v,
+            _ => panic!(),
+        }
+    }
+
+    // Take field
+    pub fn take_npc(&mut self) -> super::SceneNpcInfo::SceneNpcInfo {
+        if self.has_npc() {
+            match self.entity.take() {
+                ::std::option::Option::Some(scene_entity_info::Entity::Npc(v)) => v,
+                _ => panic!(),
+            }
+        } else {
+            super::SceneNpcInfo::SceneNpcInfo::new()
+        }
+    }
+
+    // .SceneGadgetInfo gadget = 13;
+
+    pub fn gadget(&self) -> &super::SceneGadgetInfo::SceneGadgetInfo {
+        match self.entity {
+            ::std::option::Option::Some(scene_entity_info::Entity::Gadget(ref v)) => v,
+            _ => <super::SceneGadgetInfo::SceneGadgetInfo as ::protobuf::Message>::default_instance(),
+        }
+    }
+
+    pub fn clear_gadget(&mut self) {
+        self.entity = ::std::option::Option::None;
+    }
+
+    pub fn has_gadget(&self) -> bool {
+        match self.entity {
+            ::std::option::Option::Some(scene_entity_info::Entity::Gadget(..)) => true,
+            _ => false,
+        }
+    }
+
+    // Param is passed by value, moved
+    pub fn set_gadget(&mut self, v: super::SceneGadgetInfo::SceneGadgetInfo) {
+        self.entity = ::std::option::Option::Some(scene_entity_info::Entity::Gadget(v))
+    }
+
+    // Mutable pointer to the field.
+    pub fn mut_gadget(&mut self) -> &mut super::SceneGadgetInfo::SceneGadgetInfo {
+        if let ::std::option::Option::Some(scene_entity_info::Entity::Gadget(_)) = self.entity {
+        } else {
+            self.entity = ::std::option::Option::Some(scene_entity_info::Entity::Gadget(super::SceneGadgetInfo::SceneGadgetInfo::new()));
+        }
+        match self.entity {
+            ::std::option::Option::Some(scene_entity_info::Entity::Gadget(ref mut v)) => v,
+            _ => panic!(),
+        }
+    }
+
+    // Take field
+    pub fn take_gadget(&mut self) -> super::SceneGadgetInfo::SceneGadgetInfo {
+        if self.has_gadget() {
+            match self.entity.take() {
+                ::std::option::Option::Some(scene_entity_info::Entity::Gadget(v)) => v,
+                _ => panic!(),
+            }
+        } else {
+            super::SceneGadgetInfo::SceneGadgetInfo::new()
+        }
+    }
+
     fn generated_message_descriptor_data() -> ::protobuf::reflect::GeneratedMessageDescriptorData {
-        let mut fields = ::std::vec::Vec::with_capacity(9);
-        let mut oneofs = ::std::vec::Vec::with_capacity(0);
+        let mut fields = ::std::vec::Vec::with_capacity(19);
+        let mut oneofs = ::std::vec::Vec::with_capacity(1);
+        fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
+            "entity_type",
+            |m: &SceneEntityInfo| { &m.entity_type },
+            |m: &mut SceneEntityInfo| { &mut m.entity_type },
+        ));
         fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
             "entity_id",
             |m: &SceneEntityInfo| { &m.entity_id },
             |m: &mut SceneEntityInfo| { &mut m.entity_id },
         ));
         fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
-            "group_id",
-            |m: &SceneEntityInfo| { &m.group_id },
-            |m: &mut SceneEntityInfo| { &mut m.group_id },
+            "name",
+            |m: &SceneEntityInfo| { &m.name },
+            |m: &mut SceneEntityInfo| { &mut m.name },
         ));
         fields.push(::protobuf::reflect::rt::v2::make_message_field_accessor::<_, super::MotionInfo::MotionInfo>(
-            "motion",
-            |m: &SceneEntityInfo| { &m.motion },
-            |m: &mut SceneEntityInfo| { &mut m.motion },
+            "motion_info",
+            |m: &SceneEntityInfo| { &m.motion_info },
+            |m: &mut SceneEntityInfo| { &mut m.motion_info },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_vec_simpler_accessor::<_, _>(
+            "prop_list",
+            |m: &SceneEntityInfo| { &m.prop_list },
+            |m: &mut SceneEntityInfo| { &mut m.prop_list },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_vec_simpler_accessor::<_, _>(
+            "fight_prop_list",
+            |m: &SceneEntityInfo| { &m.fight_prop_list },
+            |m: &mut SceneEntityInfo| { &mut m.fight_prop_list },
         ));
         fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
-            "inst_id",
-            |m: &SceneEntityInfo| { &m.inst_id },
-            |m: &mut SceneEntityInfo| { &mut m.inst_id },
+            "life_state",
+            |m: &SceneEntityInfo| { &m.life_state },
+            |m: &mut SceneEntityInfo| { &mut m.life_state },
         ));
-        fields.push(::protobuf::reflect::rt::v2::make_message_field_accessor::<_, super::SceneActorInfo::SceneActorInfo>(
-            "actor",
-            |m: &SceneEntityInfo| { &m.actor },
-            |m: &mut SceneEntityInfo| { &mut m.actor },
+        fields.push(::protobuf::reflect::rt::v2::make_vec_simpler_accessor::<_, _>(
+            "animator_para_list",
+            |m: &SceneEntityInfo| { &m.animator_para_list },
+            |m: &mut SceneEntityInfo| { &mut m.animator_para_list },
         ));
-        fields.push(::protobuf::reflect::rt::v2::make_message_field_accessor::<_, super::SceneNpcMonsterInfo::SceneNpcMonsterInfo>(
-            "npc_monster",
-            |m: &SceneEntityInfo| { &m.npc_monster },
-            |m: &mut SceneEntityInfo| { &mut m.npc_monster },
+        fields.push(::protobuf::reflect::rt::v2::make_oneof_message_has_get_mut_set_accessor::<_, super::SceneAvatarInfo::SceneAvatarInfo>(
+            "avatar",
+            SceneEntityInfo::has_avatar,
+            SceneEntityInfo::avatar,
+            SceneEntityInfo::mut_avatar,
+            SceneEntityInfo::set_avatar,
         ));
-        fields.push(::protobuf::reflect::rt::v2::make_message_field_accessor::<_, super::SceneNpcInfo::SceneNpcInfo>(
+        fields.push(::protobuf::reflect::rt::v2::make_oneof_message_has_get_mut_set_accessor::<_, super::SceneMonsterInfo::SceneMonsterInfo>(
+            "monster",
+            SceneEntityInfo::has_monster,
+            SceneEntityInfo::monster,
+            SceneEntityInfo::mut_monster,
+            SceneEntityInfo::set_monster,
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_oneof_message_has_get_mut_set_accessor::<_, super::SceneNpcInfo::SceneNpcInfo>(
             "npc",
-            |m: &SceneEntityInfo| { &m.npc },
-            |m: &mut SceneEntityInfo| { &mut m.npc },
+            SceneEntityInfo::has_npc,
+            SceneEntityInfo::npc,
+            SceneEntityInfo::mut_npc,
+            SceneEntityInfo::set_npc,
         ));
-        fields.push(::protobuf::reflect::rt::v2::make_message_field_accessor::<_, super::ScenePropInfo::ScenePropInfo>(
-            "prop",
-            |m: &SceneEntityInfo| { &m.prop },
-            |m: &mut SceneEntityInfo| { &mut m.prop },
+        fields.push(::protobuf::reflect::rt::v2::make_oneof_message_has_get_mut_set_accessor::<_, super::SceneGadgetInfo::SceneGadgetInfo>(
+            "gadget",
+            SceneEntityInfo::has_gadget,
+            SceneEntityInfo::gadget,
+            SceneEntityInfo::mut_gadget,
+            SceneEntityInfo::set_gadget,
         ));
-        fields.push(::protobuf::reflect::rt::v2::make_message_field_accessor::<_, super::SceneSummonUnitInfo::SceneSummonUnitInfo>(
-            "summon_unit",
-            |m: &SceneEntityInfo| { &m.summon_unit },
-            |m: &mut SceneEntityInfo| { &mut m.summon_unit },
+        fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
+            "last_move_scene_time_ms",
+            |m: &SceneEntityInfo| { &m.last_move_scene_time_ms },
+            |m: &mut SceneEntityInfo| { &mut m.last_move_scene_time_ms },
         ));
+        fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
+            "last_move_reliable_seq",
+            |m: &SceneEntityInfo| { &m.last_move_reliable_seq },
+            |m: &mut SceneEntityInfo| { &mut m.last_move_reliable_seq },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_message_field_accessor::<_, super::EntityClientData::EntityClientData>(
+            "entity_client_data",
+            |m: &SceneEntityInfo| { &m.entity_client_data },
+            |m: &mut SceneEntityInfo| { &mut m.entity_client_data },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_vec_simpler_accessor::<_, _>(
+            "entity_environment_info_list",
+            |m: &SceneEntityInfo| { &m.entity_environment_info_list },
+            |m: &mut SceneEntityInfo| { &mut m.entity_environment_info_list },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_message_field_accessor::<_, super::EntityAuthorityInfo::EntityAuthorityInfo>(
+            "entity_authority_info",
+            |m: &SceneEntityInfo| { &m.entity_authority_info },
+            |m: &mut SceneEntityInfo| { &mut m.entity_authority_info },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_vec_simpler_accessor::<_, _>(
+            "tag_list",
+            |m: &SceneEntityInfo| { &m.tag_list },
+            |m: &mut SceneEntityInfo| { &mut m.tag_list },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_vec_simpler_accessor::<_, _>(
+            "server_buff_list",
+            |m: &SceneEntityInfo| { &m.server_buff_list },
+            |m: &mut SceneEntityInfo| { &mut m.server_buff_list },
+        ));
+        oneofs.push(scene_entity_info::Entity::generated_oneof_descriptor_data());
         ::protobuf::reflect::GeneratedMessageDescriptorData::new_2::<SceneEntityInfo>(
             "SceneEntityInfo",
             fields,
@@ -129,32 +398,62 @@ impl ::protobuf::Message for SceneEntityInfo {
     fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream<'_>) -> ::protobuf::Result<()> {
         while let Some(tag) = is.read_raw_tag_or_eof()? {
             match tag {
-                48 => {
-                    self.entity_id = is.read_uint32()?;
+                8 => {
+                    self.entity_type = is.read_enum_or_unknown()?;
                 },
                 16 => {
-                    self.group_id = is.read_uint32()?;
+                    self.entity_id = is.read_uint32()?;
                 },
-                58 => {
-                    ::protobuf::rt::read_singular_message_into_field(is, &mut self.motion)?;
+                26 => {
+                    self.name = is.read_string()?;
                 },
-                120 => {
-                    self.inst_id = is.read_uint32()?;
-                },
-                74 => {
-                    ::protobuf::rt::read_singular_message_into_field(is, &mut self.actor)?;
+                34 => {
+                    ::protobuf::rt::read_singular_message_into_field(is, &mut self.motion_info)?;
                 },
                 42 => {
-                    ::protobuf::rt::read_singular_message_into_field(is, &mut self.npc_monster)?;
+                    self.prop_list.push(is.read_message()?);
                 },
-                98 => {
-                    ::protobuf::rt::read_singular_message_into_field(is, &mut self.npc)?;
+                50 => {
+                    self.fight_prop_list.push(is.read_message()?);
+                },
+                56 => {
+                    self.life_state = is.read_uint32()?;
+                },
+                74 => {
+                    self.animator_para_list.push(is.read_message()?);
                 },
                 82 => {
-                    ::protobuf::rt::read_singular_message_into_field(is, &mut self.prop)?;
+                    self.entity = ::std::option::Option::Some(scene_entity_info::Entity::Avatar(is.read_message()?));
                 },
-                114 => {
-                    ::protobuf::rt::read_singular_message_into_field(is, &mut self.summon_unit)?;
+                90 => {
+                    self.entity = ::std::option::Option::Some(scene_entity_info::Entity::Monster(is.read_message()?));
+                },
+                98 => {
+                    self.entity = ::std::option::Option::Some(scene_entity_info::Entity::Npc(is.read_message()?));
+                },
+                106 => {
+                    self.entity = ::std::option::Option::Some(scene_entity_info::Entity::Gadget(is.read_message()?));
+                },
+                136 => {
+                    self.last_move_scene_time_ms = is.read_uint32()?;
+                },
+                144 => {
+                    self.last_move_reliable_seq = is.read_uint32()?;
+                },
+                154 => {
+                    ::protobuf::rt::read_singular_message_into_field(is, &mut self.entity_client_data)?;
+                },
+                162 => {
+                    self.entity_environment_info_list.push(is.read_message()?);
+                },
+                170 => {
+                    ::protobuf::rt::read_singular_message_into_field(is, &mut self.entity_authority_info)?;
+                },
+                178 => {
+                    self.tag_list.push(is.read_string()?);
+                },
+                186 => {
+                    self.server_buff_list.push(is.read_message()?);
                 },
                 tag => {
                     ::protobuf::rt::read_unknown_or_skip_group(tag, is, self.special_fields.mut_unknown_fields())?;
@@ -168,38 +467,78 @@ impl ::protobuf::Message for SceneEntityInfo {
     #[allow(unused_variables)]
     fn compute_size(&self) -> u64 {
         let mut my_size = 0;
+        if self.entity_type != ::protobuf::EnumOrUnknown::new(super::ProtEntityType::ProtEntityType::PROT_ENTITY_TYPE_NONE) {
+            my_size += ::protobuf::rt::int32_size(1, self.entity_type.value());
+        }
         if self.entity_id != 0 {
-            my_size += ::protobuf::rt::uint32_size(6, self.entity_id);
+            my_size += ::protobuf::rt::uint32_size(2, self.entity_id);
         }
-        if self.group_id != 0 {
-            my_size += ::protobuf::rt::uint32_size(2, self.group_id);
+        if !self.name.is_empty() {
+            my_size += ::protobuf::rt::string_size(3, &self.name);
         }
-        if let Some(v) = self.motion.as_ref() {
+        if let Some(v) = self.motion_info.as_ref() {
             let len = v.compute_size();
             my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
         }
-        if self.inst_id != 0 {
-            my_size += ::protobuf::rt::uint32_size(15, self.inst_id);
-        }
-        if let Some(v) = self.actor.as_ref() {
-            let len = v.compute_size();
+        for value in &self.prop_list {
+            let len = value.compute_size();
             my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
-        }
-        if let Some(v) = self.npc_monster.as_ref() {
-            let len = v.compute_size();
+        };
+        for value in &self.fight_prop_list {
+            let len = value.compute_size();
             my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
+        };
+        if self.life_state != 0 {
+            my_size += ::protobuf::rt::uint32_size(7, self.life_state);
         }
-        if let Some(v) = self.npc.as_ref() {
-            let len = v.compute_size();
+        for value in &self.animator_para_list {
+            let len = value.compute_size();
             my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
+        };
+        if self.last_move_scene_time_ms != 0 {
+            my_size += ::protobuf::rt::uint32_size(17, self.last_move_scene_time_ms);
         }
-        if let Some(v) = self.prop.as_ref() {
-            let len = v.compute_size();
-            my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
+        if self.last_move_reliable_seq != 0 {
+            my_size += ::protobuf::rt::uint32_size(18, self.last_move_reliable_seq);
         }
-        if let Some(v) = self.summon_unit.as_ref() {
+        if let Some(v) = self.entity_client_data.as_ref() {
             let len = v.compute_size();
-            my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
+            my_size += 2 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
+        }
+        for value in &self.entity_environment_info_list {
+            let len = value.compute_size();
+            my_size += 2 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
+        };
+        if let Some(v) = self.entity_authority_info.as_ref() {
+            let len = v.compute_size();
+            my_size += 2 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
+        }
+        for value in &self.tag_list {
+            my_size += ::protobuf::rt::string_size(22, &value);
+        };
+        for value in &self.server_buff_list {
+            let len = value.compute_size();
+            my_size += 2 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
+        };
+        if let ::std::option::Option::Some(ref v) = self.entity {
+            match v {
+                &scene_entity_info::Entity::Avatar(ref v) => {
+                    let len = v.compute_size();
+                    my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
+                },
+                &scene_entity_info::Entity::Monster(ref v) => {
+                    let len = v.compute_size();
+                    my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
+                },
+                &scene_entity_info::Entity::Npc(ref v) => {
+                    let len = v.compute_size();
+                    my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
+                },
+                &scene_entity_info::Entity::Gadget(ref v) => {
+                    let len = v.compute_size();
+                    my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
+                },
+            };
         }
         my_size += ::protobuf::rt::unknown_fields_size(self.special_fields.unknown_fields());
         self.special_fields.cached_size().set(my_size as u32);
@@ -207,32 +546,66 @@ impl ::protobuf::Message for SceneEntityInfo {
     }
 
     fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream<'_>) -> ::protobuf::Result<()> {
+        if self.entity_type != ::protobuf::EnumOrUnknown::new(super::ProtEntityType::ProtEntityType::PROT_ENTITY_TYPE_NONE) {
+            os.write_enum(1, ::protobuf::EnumOrUnknown::value(&self.entity_type))?;
+        }
         if self.entity_id != 0 {
-            os.write_uint32(6, self.entity_id)?;
+            os.write_uint32(2, self.entity_id)?;
         }
-        if self.group_id != 0 {
-            os.write_uint32(2, self.group_id)?;
+        if !self.name.is_empty() {
+            os.write_string(3, &self.name)?;
         }
-        if let Some(v) = self.motion.as_ref() {
-            ::protobuf::rt::write_message_field_with_cached_size(7, v, os)?;
+        if let Some(v) = self.motion_info.as_ref() {
+            ::protobuf::rt::write_message_field_with_cached_size(4, v, os)?;
         }
-        if self.inst_id != 0 {
-            os.write_uint32(15, self.inst_id)?;
-        }
-        if let Some(v) = self.actor.as_ref() {
-            ::protobuf::rt::write_message_field_with_cached_size(9, v, os)?;
-        }
-        if let Some(v) = self.npc_monster.as_ref() {
+        for v in &self.prop_list {
             ::protobuf::rt::write_message_field_with_cached_size(5, v, os)?;
+        };
+        for v in &self.fight_prop_list {
+            ::protobuf::rt::write_message_field_with_cached_size(6, v, os)?;
+        };
+        if self.life_state != 0 {
+            os.write_uint32(7, self.life_state)?;
         }
-        if let Some(v) = self.npc.as_ref() {
-            ::protobuf::rt::write_message_field_with_cached_size(12, v, os)?;
+        for v in &self.animator_para_list {
+            ::protobuf::rt::write_message_field_with_cached_size(9, v, os)?;
+        };
+        if self.last_move_scene_time_ms != 0 {
+            os.write_uint32(17, self.last_move_scene_time_ms)?;
         }
-        if let Some(v) = self.prop.as_ref() {
-            ::protobuf::rt::write_message_field_with_cached_size(10, v, os)?;
+        if self.last_move_reliable_seq != 0 {
+            os.write_uint32(18, self.last_move_reliable_seq)?;
         }
-        if let Some(v) = self.summon_unit.as_ref() {
-            ::protobuf::rt::write_message_field_with_cached_size(14, v, os)?;
+        if let Some(v) = self.entity_client_data.as_ref() {
+            ::protobuf::rt::write_message_field_with_cached_size(19, v, os)?;
+        }
+        for v in &self.entity_environment_info_list {
+            ::protobuf::rt::write_message_field_with_cached_size(20, v, os)?;
+        };
+        if let Some(v) = self.entity_authority_info.as_ref() {
+            ::protobuf::rt::write_message_field_with_cached_size(21, v, os)?;
+        }
+        for v in &self.tag_list {
+            os.write_string(22, &v)?;
+        };
+        for v in &self.server_buff_list {
+            ::protobuf::rt::write_message_field_with_cached_size(23, v, os)?;
+        };
+        if let ::std::option::Option::Some(ref v) = self.entity {
+            match v {
+                &scene_entity_info::Entity::Avatar(ref v) => {
+                    ::protobuf::rt::write_message_field_with_cached_size(10, v, os)?;
+                },
+                &scene_entity_info::Entity::Monster(ref v) => {
+                    ::protobuf::rt::write_message_field_with_cached_size(11, v, os)?;
+                },
+                &scene_entity_info::Entity::Npc(ref v) => {
+                    ::protobuf::rt::write_message_field_with_cached_size(12, v, os)?;
+                },
+                &scene_entity_info::Entity::Gadget(ref v) => {
+                    ::protobuf::rt::write_message_field_with_cached_size(13, v, os)?;
+                },
+            };
         }
         os.write_unknown_fields(self.special_fields.unknown_fields())?;
         ::std::result::Result::Ok(())
@@ -251,29 +624,46 @@ impl ::protobuf::Message for SceneEntityInfo {
     }
 
     fn clear(&mut self) {
+        self.entity_type = ::protobuf::EnumOrUnknown::new(super::ProtEntityType::ProtEntityType::PROT_ENTITY_TYPE_NONE);
         self.entity_id = 0;
-        self.group_id = 0;
-        self.motion.clear();
-        self.inst_id = 0;
-        self.actor.clear();
-        self.npc_monster.clear();
-        self.npc.clear();
-        self.prop.clear();
-        self.summon_unit.clear();
+        self.name.clear();
+        self.motion_info.clear();
+        self.prop_list.clear();
+        self.fight_prop_list.clear();
+        self.life_state = 0;
+        self.animator_para_list.clear();
+        self.entity = ::std::option::Option::None;
+        self.entity = ::std::option::Option::None;
+        self.entity = ::std::option::Option::None;
+        self.entity = ::std::option::Option::None;
+        self.last_move_scene_time_ms = 0;
+        self.last_move_reliable_seq = 0;
+        self.entity_client_data.clear();
+        self.entity_environment_info_list.clear();
+        self.entity_authority_info.clear();
+        self.tag_list.clear();
+        self.server_buff_list.clear();
         self.special_fields.clear();
     }
 
     fn default_instance() -> &'static SceneEntityInfo {
         static instance: SceneEntityInfo = SceneEntityInfo {
+            entity_type: ::protobuf::EnumOrUnknown::from_i32(0),
             entity_id: 0,
-            group_id: 0,
-            motion: ::protobuf::MessageField::none(),
-            inst_id: 0,
-            actor: ::protobuf::MessageField::none(),
-            npc_monster: ::protobuf::MessageField::none(),
-            npc: ::protobuf::MessageField::none(),
-            prop: ::protobuf::MessageField::none(),
-            summon_unit: ::protobuf::MessageField::none(),
+            name: ::std::string::String::new(),
+            motion_info: ::protobuf::MessageField::none(),
+            prop_list: ::std::vec::Vec::new(),
+            fight_prop_list: ::std::vec::Vec::new(),
+            life_state: 0,
+            animator_para_list: ::std::vec::Vec::new(),
+            last_move_scene_time_ms: 0,
+            last_move_reliable_seq: 0,
+            entity_client_data: ::protobuf::MessageField::none(),
+            entity_environment_info_list: ::std::vec::Vec::new(),
+            entity_authority_info: ::protobuf::MessageField::none(),
+            tag_list: ::std::vec::Vec::new(),
+            server_buff_list: ::std::vec::Vec::new(),
+            entity: ::std::option::Option::None,
             special_fields: ::protobuf::SpecialFields::new(),
         };
         &instance
@@ -297,19 +687,68 @@ impl ::protobuf::reflect::ProtobufValue for SceneEntityInfo {
     type RuntimeType = ::protobuf::reflect::rt::RuntimeTypeMessage<Self>;
 }
 
+/// Nested message and enums of message `SceneEntityInfo`
+pub mod scene_entity_info {
+
+    #[derive(Clone,PartialEq,Debug)]
+    #[non_exhaustive]
+    // @@protoc_insertion_point(oneof:SceneEntityInfo.entity)
+    pub enum Entity {
+        // @@protoc_insertion_point(oneof_field:SceneEntityInfo.avatar)
+        Avatar(super::super::SceneAvatarInfo::SceneAvatarInfo),
+        // @@protoc_insertion_point(oneof_field:SceneEntityInfo.monster)
+        Monster(super::super::SceneMonsterInfo::SceneMonsterInfo),
+        // @@protoc_insertion_point(oneof_field:SceneEntityInfo.npc)
+        Npc(super::super::SceneNpcInfo::SceneNpcInfo),
+        // @@protoc_insertion_point(oneof_field:SceneEntityInfo.gadget)
+        Gadget(super::super::SceneGadgetInfo::SceneGadgetInfo),
+    }
+
+    impl ::protobuf::Oneof for Entity {
+    }
+
+    impl ::protobuf::OneofFull for Entity {
+        fn descriptor() -> ::protobuf::reflect::OneofDescriptor {
+            static descriptor: ::protobuf::rt::Lazy<::protobuf::reflect::OneofDescriptor> = ::protobuf::rt::Lazy::new();
+            descriptor.get(|| <super::SceneEntityInfo as ::protobuf::MessageFull>::descriptor().oneof_by_name("entity").unwrap()).clone()
+        }
+    }
+
+    impl Entity {
+        pub(in super) fn generated_oneof_descriptor_data() -> ::protobuf::reflect::GeneratedOneofDescriptorData {
+            ::protobuf::reflect::GeneratedOneofDescriptorData::new::<Entity>("entity")
+        }
+    }
+}
+
 static file_descriptor_proto_data: &'static [u8] = b"\
-    \n\x15SceneEntityInfo.proto\x1a\x10MotionInfo.proto\x1a\x19SceneSummonUn\
-    itInfo.proto\x1a\x14SceneActorInfo.proto\x1a\x19SceneNpcMonsterInfo.prot\
-    o\x1a\x12SceneNpcInfo.proto\x1a\x13ScenePropInfo.proto\"\xe1\x02\n\x0fSc\
-    eneEntityInfo\x12\x1b\n\tentity_id\x18\x06\x20\x01(\rR\x08entityId\x12\
-    \x19\n\x08group_id\x18\x02\x20\x01(\rR\x07groupId\x12#\n\x06motion\x18\
-    \x07\x20\x01(\x0b2\x0b.MotionInfoR\x06motion\x12\x17\n\x07inst_id\x18\
-    \x0f\x20\x01(\rR\x06instId\x12%\n\x05actor\x18\t\x20\x01(\x0b2\x0f.Scene\
-    ActorInfoR\x05actor\x125\n\x0bnpc_monster\x18\x05\x20\x01(\x0b2\x14.Scen\
-    eNpcMonsterInfoR\nnpcMonster\x12\x1f\n\x03npc\x18\x0c\x20\x01(\x0b2\r.Sc\
-    eneNpcInfoR\x03npc\x12\"\n\x04prop\x18\n\x20\x01(\x0b2\x0e.ScenePropInfo\
-    R\x04prop\x125\n\x0bsummon_unit\x18\x0e\x20\x01(\x0b2\x14.SceneSummonUni\
-    tInfoR\nsummonUnitB\x15\n\x13emu.lunarcore.protob\x06proto3\
+    \n\x15SceneEntityInfo.proto\x1a\x14ProtEntityType.proto\x1a\x10MotionInf\
+    o.proto\x1a\x0ePropPair.proto\x1a\x13FightPropPair.proto\x1a$AnimatorPar\
+    ameterValueInfoPair.proto\x1a\x15SceneAvatarInfo.proto\x1a\x16SceneMonst\
+    erInfo.proto\x1a\x12SceneNpcInfo.proto\x1a\x15SceneGadgetInfo.proto\x1a\
+    \x16EntityClientData.proto\x1a\x1bEntityEnvironmentInfo.proto\x1a\x19Ent\
+    ityAuthorityInfo.proto\x1a\x10ServerBuff.proto\"\xc5\x07\n\x0fSceneEntit\
+    yInfo\x120\n\x0bentity_type\x18\x01\x20\x01(\x0e2\x0f.ProtEntityTypeR\ne\
+    ntityType\x12\x1b\n\tentity_id\x18\x02\x20\x01(\rR\x08entityId\x12\x12\n\
+    \x04name\x18\x03\x20\x01(\tR\x04name\x12,\n\x0bmotion_info\x18\x04\x20\
+    \x01(\x0b2\x0b.MotionInfoR\nmotionInfo\x12&\n\tprop_list\x18\x05\x20\x03\
+    (\x0b2\t.PropPairR\x08propList\x126\n\x0ffight_prop_list\x18\x06\x20\x03\
+    (\x0b2\x0e.FightPropPairR\rfightPropList\x12\x1d\n\nlife_state\x18\x07\
+    \x20\x01(\rR\tlifeState\x12M\n\x12animator_para_list\x18\t\x20\x03(\x0b2\
+    \x1f.AnimatorParameterValueInfoPairR\x10animatorParaList\x12*\n\x06avata\
+    r\x18\n\x20\x01(\x0b2\x10.SceneAvatarInfoH\0R\x06avatar\x12-\n\x07monste\
+    r\x18\x0b\x20\x01(\x0b2\x11.SceneMonsterInfoH\0R\x07monster\x12!\n\x03np\
+    c\x18\x0c\x20\x01(\x0b2\r.SceneNpcInfoH\0R\x03npc\x12*\n\x06gadget\x18\r\
+    \x20\x01(\x0b2\x10.SceneGadgetInfoH\0R\x06gadget\x124\n\x17last_move_sce\
+    ne_time_ms\x18\x11\x20\x01(\rR\x13lastMoveSceneTimeMs\x123\n\x16last_mov\
+    e_reliable_seq\x18\x12\x20\x01(\rR\x13lastMoveReliableSeq\x12?\n\x12enti\
+    ty_client_data\x18\x13\x20\x01(\x0b2\x11.EntityClientDataR\x10entityClie\
+    ntData\x12W\n\x1centity_environment_info_list\x18\x14\x20\x03(\x0b2\x16.\
+    EntityEnvironmentInfoR\x19entityEnvironmentInfoList\x12H\n\x15entity_aut\
+    hority_info\x18\x15\x20\x01(\x0b2\x14.EntityAuthorityInfoR\x13entityAuth\
+    orityInfo\x12\x19\n\x08tag_list\x18\x16\x20\x03(\tR\x07tagList\x125\n\
+    \x10server_buff_list\x18\x17\x20\x03(\x0b2\x0b.ServerBuffR\x0eserverBuff\
+    ListB\x08\n\x06entityB\x1b\n\x19emu.grasscutter.net.protob\x06proto3\
 ";
 
 /// `FileDescriptorProto` object which was a source for this generated file
@@ -326,13 +765,20 @@ pub fn file_descriptor() -> &'static ::protobuf::reflect::FileDescriptor {
     static file_descriptor: ::protobuf::rt::Lazy<::protobuf::reflect::FileDescriptor> = ::protobuf::rt::Lazy::new();
     file_descriptor.get(|| {
         let generated_file_descriptor = generated_file_descriptor_lazy.get(|| {
-            let mut deps = ::std::vec::Vec::with_capacity(6);
+            let mut deps = ::std::vec::Vec::with_capacity(13);
+            deps.push(super::ProtEntityType::file_descriptor().clone());
             deps.push(super::MotionInfo::file_descriptor().clone());
-            deps.push(super::SceneSummonUnitInfo::file_descriptor().clone());
-            deps.push(super::SceneActorInfo::file_descriptor().clone());
-            deps.push(super::SceneNpcMonsterInfo::file_descriptor().clone());
+            deps.push(super::PropPair::file_descriptor().clone());
+            deps.push(super::FightPropPair::file_descriptor().clone());
+            deps.push(super::AnimatorParameterValueInfoPair::file_descriptor().clone());
+            deps.push(super::SceneAvatarInfo::file_descriptor().clone());
+            deps.push(super::SceneMonsterInfo::file_descriptor().clone());
             deps.push(super::SceneNpcInfo::file_descriptor().clone());
-            deps.push(super::ScenePropInfo::file_descriptor().clone());
+            deps.push(super::SceneGadgetInfo::file_descriptor().clone());
+            deps.push(super::EntityClientData::file_descriptor().clone());
+            deps.push(super::EntityEnvironmentInfo::file_descriptor().clone());
+            deps.push(super::EntityAuthorityInfo::file_descriptor().clone());
+            deps.push(super::ServerBuff::file_descriptor().clone());
             let mut messages = ::std::vec::Vec::with_capacity(1);
             messages.push(SceneEntityInfo::generated_message_descriptor_data());
             let mut enums = ::std::vec::Vec::with_capacity(0);

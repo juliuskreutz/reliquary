@@ -29,20 +29,22 @@ const _PROTOBUF_VERSION_CHECK: () = ::protobuf::VERSION_3_4_0;
 #[derive(PartialEq,Clone,Default,Debug)]
 pub struct Shop {
     // message fields
-    // @@protoc_insertion_point(field:Shop.city_level)
-    pub city_level: u32,
-    // @@protoc_insertion_point(field:Shop.begin_time)
-    pub begin_time: i64,
-    // @@protoc_insertion_point(field:Shop.end_time)
-    pub end_time: i64,
+    // @@protoc_insertion_point(field:Shop.shop_type)
+    pub shop_type: u32,
     // @@protoc_insertion_point(field:Shop.goods_list)
-    pub goods_list: ::std::vec::Vec<super::Goods::Goods>,
-    // @@protoc_insertion_point(field:Shop.city_exp)
-    pub city_exp: u32,
-    // @@protoc_insertion_point(field:Shop.city_taken_level_reward)
-    pub city_taken_level_reward: u64,
-    // @@protoc_insertion_point(field:Shop.shop_id)
-    pub shop_id: u32,
+    pub goods_list: ::std::vec::Vec<super::ShopGoods::ShopGoods>,
+    // @@protoc_insertion_point(field:Shop.card_product_list)
+    pub card_product_list: ::std::vec::Vec<super::ShopCardProduct::ShopCardProduct>,
+    // @@protoc_insertion_point(field:Shop.mcoin_product_list)
+    pub mcoin_product_list: ::std::vec::Vec<super::ShopMcoinProduct::ShopMcoinProduct>,
+    // @@protoc_insertion_point(field:Shop.concert_product_list)
+    pub concert_product_list: ::std::vec::Vec<super::ShopConcertProduct::ShopConcertProduct>,
+    // @@protoc_insertion_point(field:Shop.city_id)
+    pub city_id: u32,
+    // @@protoc_insertion_point(field:Shop.next_refresh_time)
+    pub next_refresh_time: u32,
+    // @@protoc_insertion_point(field:Shop.city_reputation_level)
+    pub city_reputation_level: u32,
     // special fields
     // @@protoc_insertion_point(special_field:Shop.special_fields)
     pub special_fields: ::protobuf::SpecialFields,
@@ -60,42 +62,47 @@ impl Shop {
     }
 
     fn generated_message_descriptor_data() -> ::protobuf::reflect::GeneratedMessageDescriptorData {
-        let mut fields = ::std::vec::Vec::with_capacity(7);
+        let mut fields = ::std::vec::Vec::with_capacity(8);
         let mut oneofs = ::std::vec::Vec::with_capacity(0);
         fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
-            "city_level",
-            |m: &Shop| { &m.city_level },
-            |m: &mut Shop| { &mut m.city_level },
-        ));
-        fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
-            "begin_time",
-            |m: &Shop| { &m.begin_time },
-            |m: &mut Shop| { &mut m.begin_time },
-        ));
-        fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
-            "end_time",
-            |m: &Shop| { &m.end_time },
-            |m: &mut Shop| { &mut m.end_time },
+            "shop_type",
+            |m: &Shop| { &m.shop_type },
+            |m: &mut Shop| { &mut m.shop_type },
         ));
         fields.push(::protobuf::reflect::rt::v2::make_vec_simpler_accessor::<_, _>(
             "goods_list",
             |m: &Shop| { &m.goods_list },
             |m: &mut Shop| { &mut m.goods_list },
         ));
-        fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
-            "city_exp",
-            |m: &Shop| { &m.city_exp },
-            |m: &mut Shop| { &mut m.city_exp },
+        fields.push(::protobuf::reflect::rt::v2::make_vec_simpler_accessor::<_, _>(
+            "card_product_list",
+            |m: &Shop| { &m.card_product_list },
+            |m: &mut Shop| { &mut m.card_product_list },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_vec_simpler_accessor::<_, _>(
+            "mcoin_product_list",
+            |m: &Shop| { &m.mcoin_product_list },
+            |m: &mut Shop| { &mut m.mcoin_product_list },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_vec_simpler_accessor::<_, _>(
+            "concert_product_list",
+            |m: &Shop| { &m.concert_product_list },
+            |m: &mut Shop| { &mut m.concert_product_list },
         ));
         fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
-            "city_taken_level_reward",
-            |m: &Shop| { &m.city_taken_level_reward },
-            |m: &mut Shop| { &mut m.city_taken_level_reward },
+            "city_id",
+            |m: &Shop| { &m.city_id },
+            |m: &mut Shop| { &mut m.city_id },
         ));
         fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
-            "shop_id",
-            |m: &Shop| { &m.shop_id },
-            |m: &mut Shop| { &mut m.shop_id },
+            "next_refresh_time",
+            |m: &Shop| { &m.next_refresh_time },
+            |m: &mut Shop| { &mut m.next_refresh_time },
+        ));
+        fields.push(::protobuf::reflect::rt::v2::make_simpler_field_accessor::<_, _>(
+            "city_reputation_level",
+            |m: &Shop| { &m.city_reputation_level },
+            |m: &mut Shop| { &mut m.city_reputation_level },
         ));
         ::protobuf::reflect::GeneratedMessageDescriptorData::new_2::<Shop>(
             "Shop",
@@ -115,26 +122,29 @@ impl ::protobuf::Message for Shop {
     fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream<'_>) -> ::protobuf::Result<()> {
         while let Some(tag) = is.read_raw_tag_or_eof()? {
             match tag {
-                64 => {
-                    self.city_level = is.read_uint32()?;
+                72 => {
+                    self.shop_type = is.read_uint32()?;
                 },
-                80 => {
-                    self.begin_time = is.read_int64()?;
-                },
-                120 => {
-                    self.end_time = is.read_int64()?;
-                },
-                74 => {
+                98 => {
                     self.goods_list.push(is.read_message()?);
                 },
-                16 => {
-                    self.city_exp = is.read_uint32()?;
+                50 => {
+                    self.card_product_list.push(is.read_message()?);
                 },
-                32 => {
-                    self.city_taken_level_reward = is.read_uint64()?;
+                122 => {
+                    self.mcoin_product_list.push(is.read_message()?);
                 },
-                112 => {
-                    self.shop_id = is.read_uint32()?;
+                18 => {
+                    self.concert_product_list.push(is.read_message()?);
+                },
+                56 => {
+                    self.city_id = is.read_uint32()?;
+                },
+                24 => {
+                    self.next_refresh_time = is.read_uint32()?;
+                },
+                104 => {
+                    self.city_reputation_level = is.read_uint32()?;
                 },
                 tag => {
                     ::protobuf::rt::read_unknown_or_skip_group(tag, is, self.special_fields.mut_unknown_fields())?;
@@ -148,27 +158,33 @@ impl ::protobuf::Message for Shop {
     #[allow(unused_variables)]
     fn compute_size(&self) -> u64 {
         let mut my_size = 0;
-        if self.city_level != 0 {
-            my_size += ::protobuf::rt::uint32_size(8, self.city_level);
-        }
-        if self.begin_time != 0 {
-            my_size += ::protobuf::rt::int64_size(10, self.begin_time);
-        }
-        if self.end_time != 0 {
-            my_size += ::protobuf::rt::int64_size(15, self.end_time);
+        if self.shop_type != 0 {
+            my_size += ::protobuf::rt::uint32_size(9, self.shop_type);
         }
         for value in &self.goods_list {
             let len = value.compute_size();
             my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
         };
-        if self.city_exp != 0 {
-            my_size += ::protobuf::rt::uint32_size(2, self.city_exp);
+        for value in &self.card_product_list {
+            let len = value.compute_size();
+            my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
+        };
+        for value in &self.mcoin_product_list {
+            let len = value.compute_size();
+            my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
+        };
+        for value in &self.concert_product_list {
+            let len = value.compute_size();
+            my_size += 1 + ::protobuf::rt::compute_raw_varint64_size(len) + len;
+        };
+        if self.city_id != 0 {
+            my_size += ::protobuf::rt::uint32_size(7, self.city_id);
         }
-        if self.city_taken_level_reward != 0 {
-            my_size += ::protobuf::rt::uint64_size(4, self.city_taken_level_reward);
+        if self.next_refresh_time != 0 {
+            my_size += ::protobuf::rt::uint32_size(3, self.next_refresh_time);
         }
-        if self.shop_id != 0 {
-            my_size += ::protobuf::rt::uint32_size(14, self.shop_id);
+        if self.city_reputation_level != 0 {
+            my_size += ::protobuf::rt::uint32_size(13, self.city_reputation_level);
         }
         my_size += ::protobuf::rt::unknown_fields_size(self.special_fields.unknown_fields());
         self.special_fields.cached_size().set(my_size as u32);
@@ -176,26 +192,29 @@ impl ::protobuf::Message for Shop {
     }
 
     fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream<'_>) -> ::protobuf::Result<()> {
-        if self.city_level != 0 {
-            os.write_uint32(8, self.city_level)?;
-        }
-        if self.begin_time != 0 {
-            os.write_int64(10, self.begin_time)?;
-        }
-        if self.end_time != 0 {
-            os.write_int64(15, self.end_time)?;
+        if self.shop_type != 0 {
+            os.write_uint32(9, self.shop_type)?;
         }
         for v in &self.goods_list {
-            ::protobuf::rt::write_message_field_with_cached_size(9, v, os)?;
+            ::protobuf::rt::write_message_field_with_cached_size(12, v, os)?;
         };
-        if self.city_exp != 0 {
-            os.write_uint32(2, self.city_exp)?;
+        for v in &self.card_product_list {
+            ::protobuf::rt::write_message_field_with_cached_size(6, v, os)?;
+        };
+        for v in &self.mcoin_product_list {
+            ::protobuf::rt::write_message_field_with_cached_size(15, v, os)?;
+        };
+        for v in &self.concert_product_list {
+            ::protobuf::rt::write_message_field_with_cached_size(2, v, os)?;
+        };
+        if self.city_id != 0 {
+            os.write_uint32(7, self.city_id)?;
         }
-        if self.city_taken_level_reward != 0 {
-            os.write_uint64(4, self.city_taken_level_reward)?;
+        if self.next_refresh_time != 0 {
+            os.write_uint32(3, self.next_refresh_time)?;
         }
-        if self.shop_id != 0 {
-            os.write_uint32(14, self.shop_id)?;
+        if self.city_reputation_level != 0 {
+            os.write_uint32(13, self.city_reputation_level)?;
         }
         os.write_unknown_fields(self.special_fields.unknown_fields())?;
         ::std::result::Result::Ok(())
@@ -214,25 +233,27 @@ impl ::protobuf::Message for Shop {
     }
 
     fn clear(&mut self) {
-        self.city_level = 0;
-        self.begin_time = 0;
-        self.end_time = 0;
+        self.shop_type = 0;
         self.goods_list.clear();
-        self.city_exp = 0;
-        self.city_taken_level_reward = 0;
-        self.shop_id = 0;
+        self.card_product_list.clear();
+        self.mcoin_product_list.clear();
+        self.concert_product_list.clear();
+        self.city_id = 0;
+        self.next_refresh_time = 0;
+        self.city_reputation_level = 0;
         self.special_fields.clear();
     }
 
     fn default_instance() -> &'static Shop {
         static instance: Shop = Shop {
-            city_level: 0,
-            begin_time: 0,
-            end_time: 0,
+            shop_type: 0,
             goods_list: ::std::vec::Vec::new(),
-            city_exp: 0,
-            city_taken_level_reward: 0,
-            shop_id: 0,
+            card_product_list: ::std::vec::Vec::new(),
+            mcoin_product_list: ::std::vec::Vec::new(),
+            concert_product_list: ::std::vec::Vec::new(),
+            city_id: 0,
+            next_refresh_time: 0,
+            city_reputation_level: 0,
             special_fields: ::protobuf::SpecialFields::new(),
         };
         &instance
@@ -257,13 +278,18 @@ impl ::protobuf::reflect::ProtobufValue for Shop {
 }
 
 static file_descriptor_proto_data: &'static [u8] = b"\
-    \n\nShop.proto\x1a\x0bGoods.proto\"\xf1\x01\n\x04Shop\x12\x1d\n\ncity_le\
-    vel\x18\x08\x20\x01(\rR\tcityLevel\x12\x1d\n\nbegin_time\x18\n\x20\x01(\
-    \x03R\tbeginTime\x12\x19\n\x08end_time\x18\x0f\x20\x01(\x03R\x07endTime\
-    \x12%\n\ngoods_list\x18\t\x20\x03(\x0b2\x06.GoodsR\tgoodsList\x12\x19\n\
-    \x08city_exp\x18\x02\x20\x01(\rR\x07cityExp\x125\n\x17city_taken_level_r\
-    eward\x18\x04\x20\x01(\x04R\x14cityTakenLevelReward\x12\x17\n\x07shop_id\
-    \x18\x0e\x20\x01(\rR\x06shopIdB\x15\n\x13emu.lunarcore.protob\x06proto3\
+    \n\nShop.proto\x1a\x0fShopGoods.proto\x1a\x15ShopCardProduct.proto\x1a\
+    \x16ShopMcoinProduct.proto\x1a\x18ShopConcertProduct.proto\"\x8d\x03\n\
+    \x04Shop\x12\x1b\n\tshop_type\x18\t\x20\x01(\rR\x08shopType\x12)\n\ngood\
+    s_list\x18\x0c\x20\x03(\x0b2\n.ShopGoodsR\tgoodsList\x12<\n\x11card_prod\
+    uct_list\x18\x06\x20\x03(\x0b2\x10.ShopCardProductR\x0fcardProductList\
+    \x12?\n\x12mcoin_product_list\x18\x0f\x20\x03(\x0b2\x11.ShopMcoinProduct\
+    R\x10mcoinProductList\x12E\n\x14concert_product_list\x18\x02\x20\x03(\
+    \x0b2\x13.ShopConcertProductR\x12concertProductList\x12\x17\n\x07city_id\
+    \x18\x07\x20\x01(\rR\x06cityId\x12*\n\x11next_refresh_time\x18\x03\x20\
+    \x01(\rR\x0fnextRefreshTime\x122\n\x15city_reputation_level\x18\r\x20\
+    \x01(\rR\x13cityReputationLevelB\x1b\n\x19emu.grasscutter.net.protob\x06\
+    proto3\
 ";
 
 /// `FileDescriptorProto` object which was a source for this generated file
@@ -280,8 +306,11 @@ pub fn file_descriptor() -> &'static ::protobuf::reflect::FileDescriptor {
     static file_descriptor: ::protobuf::rt::Lazy<::protobuf::reflect::FileDescriptor> = ::protobuf::rt::Lazy::new();
     file_descriptor.get(|| {
         let generated_file_descriptor = generated_file_descriptor_lazy.get(|| {
-            let mut deps = ::std::vec::Vec::with_capacity(1);
-            deps.push(super::Goods::file_descriptor().clone());
+            let mut deps = ::std::vec::Vec::with_capacity(4);
+            deps.push(super::ShopGoods::file_descriptor().clone());
+            deps.push(super::ShopCardProduct::file_descriptor().clone());
+            deps.push(super::ShopMcoinProduct::file_descriptor().clone());
+            deps.push(super::ShopConcertProduct::file_descriptor().clone());
             let mut messages = ::std::vec::Vec::with_capacity(1);
             messages.push(Shop::generated_message_descriptor_data());
             let mut enums = ::std::vec::Vec::with_capacity(0);
