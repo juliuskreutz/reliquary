@@ -95,10 +95,10 @@ pub enum ConnectionPacket {
 /// ## Bit Layout
 /// | Bit indices     |  Type |  Name |
 /// | - | - | - |
-/// |   0..4      |  `u32`  |  Header (magic constant) |
-/// |   0..6      |  `u16`  |  command_id |
-/// |   6..8      |  `u16`  |  header_len (unsure) |
-/// |   8..12     |  `u32`  |  data_len |
+/// |   0..2      |  `u16`  |  Header (magic constant) |
+/// |   2..4      |  `u16`  |  command_id |
+/// |   4..6      |  `u16`  |  header_len (unsure) |
+/// |   6..10     |  `u32`  |  data_len |
 /// |  12..12+data_len |  variable  |  proto_data |
 /// | data_len..data_len+4  |  `u32`  |  Tail (magic constant) |
 #[derive(Clone)]
@@ -112,8 +112,8 @@ pub struct GameCommand {
 }
 
 impl GameCommand {
-    const HEADER_LEN: usize = 12;
-    const TAIL_LEN: usize = 4;
+    const HEADER_LEN: usize = 10;
+    const TAIL_LEN: usize = 2;
 
     #[instrument(skip(bytes), fields(len = bytes.len()))]
     pub fn try_new(bytes: Vec<u8>) -> Option<Self> {
@@ -124,11 +124,11 @@ impl GameCommand {
         }
 
         // skip header magic const
-        let command_id = u16::from_be_bytes(bytes[4..6].try_into().unwrap());
-        let header_len = u16::from_be_bytes(bytes[6..8].try_into().unwrap());
-        let data_len = u32::from_be_bytes(bytes[8..12].try_into().unwrap());
+        let command_id = u16::from_be_bytes(bytes[2..4].try_into().unwrap());
+        let header_len = u16::from_be_bytes(bytes[4..6].try_into().unwrap());
+        let data_len = u32::from_be_bytes(bytes[6..10].try_into().unwrap());
 
-        let data = bytes[12..12 + data_len as usize + header_len as usize].to_vec();
+        let data = bytes[10..10 + data_len as usize + header_len as usize].to_vec();
         Some(GameCommand {
             command_id,
             header_len,
@@ -168,7 +168,7 @@ pub struct GameSniffer {
     sent_kcp: Option<KcpSniffer>,
     recv_kcp: Option<KcpSniffer>,
     key: Option<Vec<u8>>,
-    initial_keys: HashMap<u32, Vec<u8>>,
+    initial_keys: HashMap<u16, Vec<u8>>,
 }
 
 impl GameSniffer {
@@ -176,7 +176,7 @@ impl GameSniffer {
         Self::default()
     }
 
-    pub fn set_initial_keys(mut self, initial_keys: HashMap<u32, Vec<u8>>) -> Self {
+    pub fn set_initial_keys(mut self, initial_keys: HashMap<u16, Vec<u8>>) -> Self {
         self.initial_keys = initial_keys;
         self
     }
@@ -266,6 +266,8 @@ impl GameSniffer {
             let seed = token_command.secret_key_seed;
             info!(?seed, "setting new session key");
             self.key = Some(new_key_from_seed(seed));
+        } else if command.command_id == command_id::UnionCmdNotify {
+            info!("UnionCmdNotify");
         }
 
         Some(command)
