@@ -71,7 +71,7 @@ mod connection;
 mod crypto;
 mod kcp;
 
-const PORTS: [u16; 2] = [23301, 23302];
+const PORTS: [u16; 2] = [22101, 22102];
 
 /// Top-level packet sent by the game
 pub enum GamePacket {
