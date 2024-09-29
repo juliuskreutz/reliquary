@@ -218,8 +218,8 @@ impl GameSniffer {
             PacketDirection::Received => &mut self.recv_kcp,
         };
 
-        if let None = kcp {
-            let new_kcp = KcpSniffer::try_new(&kcp_seg)?;
+        if kcp.is_none() {
+            let new_kcp = KcpSniffer::try_new(kcp_seg)?;
             *kcp = Some(new_kcp);
         }
 

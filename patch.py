@@ -9,7 +9,7 @@ from git import Repo
 
 Repo.clone_from("https://gitlab.com/Melledy/LunarCore-Protos.git", "LunarCore-Protos")
 Repo.clone_from(
-    "https://github.com/IceDynamix/reliquary-codegen.git", "reliquary-codegen"
+    "https://github.com/juliuskreutz/reliquary-codegen.git", "reliquary-codegen"
 )
 
 os.mkdir("data")

@@ -1,4 +1,3 @@
-
 // @generated
 pub const DailyRefreshNotify: u16 = 100;
 pub const MultiplayerFightGameStateScRsp: u16 = 1006;
@@ -1575,7 +1574,6 @@ pub const BatchGetQuestDataCsReq: u16 = 982;
 pub const GmTalkScRsp: u16 = 99;
 pub const FinishQuestScRsp: u16 = 999;
 
-
 pub fn command_id_to_str(id: u16) -> Option<&'static str> {
     match id {
         DailyRefreshNotify => Some("DailyRefreshNotify"),
@@ -1913,8 +1911,12 @@ pub fn command_id_to_str(id: u16) -> Option<&'static str> {
         LeaveTrialActivityScRsp => Some("LeaveTrialActivityScRsp"),
         TakeMonsterResearchActivityRewardCsReq => Some("TakeMonsterResearchActivityRewardCsReq"),
         CurTrialActivityScNotify => Some("CurTrialActivityScNotify"),
-        SubmitMonsterResearchActivityMaterialScRsp => Some("SubmitMonsterResearchActivityMaterialScRsp"),
-        SubmitMonsterResearchActivityMaterialCsReq => Some("SubmitMonsterResearchActivityMaterialCsReq"),
+        SubmitMonsterResearchActivityMaterialScRsp => {
+            Some("SubmitMonsterResearchActivityMaterialScRsp")
+        }
+        SubmitMonsterResearchActivityMaterialCsReq => {
+            Some("SubmitMonsterResearchActivityMaterialCsReq")
+        }
         StartTrialActivityScRsp => Some("StartTrialActivityScRsp"),
         TakeTrialActivityRewardScRsp => Some("TakeTrialActivityRewardScRsp"),
         TakeTrialActivityRewardCsReq => Some("TakeTrialActivityRewardCsReq"),
@@ -2120,10 +2122,14 @@ pub fn command_id_to_str(id: u16) -> Option<&'static str> {
         TrainVisitorBehaviorFinishScRsp => Some("TrainVisitorBehaviorFinishScRsp"),
         GetTrainVisitorBehaviorCsReq => Some("GetTrainVisitorBehaviorCsReq"),
         GetTrainVisitorRegisterScRsp => Some("GetTrainVisitorRegisterScRsp"),
-        TakeTrainVisitorUntakenBehaviorRewardScRsp => Some("TakeTrainVisitorUntakenBehaviorRewardScRsp"),
+        TakeTrainVisitorUntakenBehaviorRewardScRsp => {
+            Some("TakeTrainVisitorUntakenBehaviorRewardScRsp")
+        }
         GetTrainVisitorRegisterCsReq => Some("GetTrainVisitorRegisterCsReq"),
         GetTrainVisitorBehaviorScRsp => Some("GetTrainVisitorBehaviorScRsp"),
-        TakeTrainVisitorUntakenBehaviorRewardCsReq => Some("TakeTrainVisitorUntakenBehaviorRewardCsReq"),
+        TakeTrainVisitorUntakenBehaviorRewardCsReq => {
+            Some("TakeTrainVisitorUntakenBehaviorRewardCsReq")
+        }
         ShowNewSupplementVisitorScRsp => Some("ShowNewSupplementVisitorScRsp"),
         TrainRefreshTimeNotify => Some("TrainRefreshTimeNotify"),
         TrainVisitorBehaviorFinishCsReq => Some("TrainVisitorBehaviorFinishCsReq"),
@@ -2413,7 +2419,9 @@ pub fn command_id_to_str(id: u16) -> Option<&'static str> {
         ChessRogueMoveCellNotify => Some("ChessRogueMoveCellNotify"),
         ChessRogueEnterScRsp => Some("ChessRogueEnterScRsp"),
         ChessRogueChangeyAeonDimensionNotify => Some("ChessRogueChangeyAeonDimensionNotify"),
-        ChessRogueUpdateAllowedSelectCellScNotify => Some("ChessRogueUpdateAllowedSelectCellScNotify"),
+        ChessRogueUpdateAllowedSelectCellScNotify => {
+            Some("ChessRogueUpdateAllowedSelectCellScNotify")
+        }
         SelectChessRogueNousSubStoryCsReq => Some("SelectChessRogueNousSubStoryCsReq"),
         PromoteEquipmentScRsp => Some("PromoteEquipmentScRsp"),
         ChessRogueUpdateUnlockLevelScNotify => Some("ChessRogueUpdateUnlockLevelScNotify"),
@@ -2437,7 +2445,9 @@ pub fn command_id_to_str(id: u16) -> Option<&'static str> {
         ChessRogueQuestFinishNotify => Some("ChessRogueQuestFinishNotify"),
         ChessRogueUpdateDiceInfoScNotify => Some("ChessRogueUpdateDiceInfoScNotify"),
         GetChessRogueStoryInfoScRsp => Some("GetChessRogueStoryInfoScRsp"),
-        ChessRogueUpdateDicePassiveAccumulateValueScNotify => Some("ChessRogueUpdateDicePassiveAccumulateValueScNotify"),
+        ChessRogueUpdateDicePassiveAccumulateValueScNotify => {
+            Some("ChessRogueUpdateDicePassiveAccumulateValueScNotify")
+        }
         ChessRogueFinishCurRoomNotify => Some("ChessRogueFinishCurRoomNotify"),
         ModifyRelicFilterPlanCsReq => Some("ModifyRelicFilterPlanCsReq"),
         ChessRogueReRollDiceCsReq => Some("ChessRogueReRollDiceCsReq"),
@@ -2477,7 +2487,9 @@ pub fn command_id_to_str(id: u16) -> Option<&'static str> {
         ChessRogueQueryAeonDimensionsScRsp => Some("ChessRogueQueryAeonDimensionsScRsp"),
         ChessRogueRollDiceScRsp => Some("ChessRogueRollDiceScRsp"),
         ExpUpEquipmentScRsp => Some("ExpUpEquipmentScRsp"),
-        ChessRogueUpdateAeonModifierValueScNotify => Some("ChessRogueUpdateAeonModifierValueScNotify"),
+        ChessRogueUpdateAeonModifierValueScNotify => {
+            Some("ChessRogueUpdateAeonModifierValueScNotify")
+        }
         GetChessRogueStoryAeonTalkInfoScRsp => Some("GetChessRogueStoryAeonTalkInfoScRsp"),
         ChessRogueGiveUpRollCsReq => Some("ChessRogueGiveUpRollCsReq"),
         ChessRogueSelectCellCsReq => Some("ChessRogueSelectCellCsReq"),
@@ -2558,7 +2570,9 @@ pub fn command_id_to_str(id: u16) -> Option<&'static str> {
         GetRogueExhibitionScRsp => Some("GetRogueExhibitionScRsp"),
         SyncRogueCommonDialogueDataScNotify => Some("SyncRogueCommonDialogueDataScNotify"),
         SetRogueCollectionCsReq => Some("SetRogueCollectionCsReq"),
-        SyncRogueCommonDialogueOptionFinishScNotify => Some("SyncRogueCommonDialogueOptionFinishScNotify"),
+        SyncRogueCommonDialogueOptionFinishScNotify => {
+            Some("SyncRogueCommonDialogueOptionFinishScNotify")
+        }
         UpdateRogueAdventureRoomScoreCsReq => Some("UpdateRogueAdventureRoomScoreCsReq"),
         RogueWorkbenchSelectFuncCsReq => Some("RogueWorkbenchSelectFuncCsReq"),
         SetRogueExhibitionScRsp => Some("SetRogueExhibitionScRsp"),
@@ -2633,11 +2647,19 @@ pub fn command_id_to_str(id: u16) -> Option<&'static str> {
         GetRelicFilterPlanScRsp => Some("GetRelicFilterPlanScRsp"),
         GetRogueEndlessActivityDataCsReq => Some("GetRogueEndlessActivityDataCsReq"),
         RogueEndlessActivityBattleEndScNotify => Some("RogueEndlessActivityBattleEndScNotify"),
-        TakeRogueEndlessActivityAllBonusRewardCsReq => Some("TakeRogueEndlessActivityAllBonusRewardCsReq"),
+        TakeRogueEndlessActivityAllBonusRewardCsReq => {
+            Some("TakeRogueEndlessActivityAllBonusRewardCsReq")
+        }
         GetRogueEndlessActivityDataScRsp => Some("GetRogueEndlessActivityDataScRsp"),
-        TakeRogueEndlessActivityAllBonusRewardScRsp => Some("TakeRogueEndlessActivityAllBonusRewardScRsp"),
-        TakeRogueEndlessActivityPointRewardCsReq => Some("TakeRogueEndlessActivityPointRewardCsReq"),
-        TakeRogueEndlessActivityPointRewardScRsp => Some("TakeRogueEndlessActivityPointRewardScRsp"),
+        TakeRogueEndlessActivityAllBonusRewardScRsp => {
+            Some("TakeRogueEndlessActivityAllBonusRewardScRsp")
+        }
+        TakeRogueEndlessActivityPointRewardCsReq => {
+            Some("TakeRogueEndlessActivityPointRewardCsReq")
+        }
+        TakeRogueEndlessActivityPointRewardScRsp => {
+            Some("TakeRogueEndlessActivityPointRewardScRsp")
+        }
         EnterRogueEndlessActivityStageCsReq => Some("EnterRogueEndlessActivityStageCsReq"),
         EnterRogueEndlessActivityStageScRsp => Some("EnterRogueEndlessActivityStageScRsp"),
         RogueTournGetMiscRealTimeDataScRsp => Some("RogueTournGetMiscRealTimeDataScRsp"),
@@ -2763,7 +2785,9 @@ pub fn command_id_to_str(id: u16) -> Option<&'static str> {
         GetStrongChallengeActivityDataScRsp => Some("GetStrongChallengeActivityDataScRsp"),
         EnterStrongChallengeActivityStageCsReq => Some("EnterStrongChallengeActivityStageCsReq"),
         EnterStrongChallengeActivityStageScRsp => Some("EnterStrongChallengeActivityStageScRsp"),
-        StrongChallengeActivityBattleEndScNotify => Some("StrongChallengeActivityBattleEndScNotify"),
+        StrongChallengeActivityBattleEndScNotify => {
+            Some("StrongChallengeActivityBattleEndScNotify")
+        }
         GetStrongChallengeActivityDataCsReq => Some("GetStrongChallengeActivityDataCsReq"),
         PlayerSyncScNotify => Some("PlayerSyncScNotify"),
         QueryProductInfoScRsp => Some("QueryProductInfoScRsp"),
@@ -3153,6 +3177,6 @@ pub fn command_id_to_str(id: u16) -> Option<&'static str> {
         GmTalkScRsp => Some("GmTalkScRsp"),
         FinishQuestScRsp => Some("FinishQuestScRsp"),
 
-        _ => None
+        _ => None,
     }
 }

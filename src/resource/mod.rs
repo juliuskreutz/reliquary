@@ -4,10 +4,10 @@
 
 //! Parse resource files from SRData
 
-use std::ops::Deref;
-use serde::Deserialize;
-use tracing::warn;
 use crate::resource::text_map::TextMap;
+use serde::Deserialize;
+use std::ops::Deref;
+use tracing::warn;
 
 pub mod excel;
 pub mod text_map;
@@ -61,7 +61,7 @@ impl TextMapEntry {
     pub fn lookup<'a>(&self, text_map: &'a TextMap) -> Option<&'a str> {
         let entry = text_map.0.get(&self.Hash).map(|s| s.as_str());
         if entry.is_none() {
-            warn!(hash=self.Hash, "could not find text map entry")
+            warn!(hash = self.Hash, "could not find text map entry")
         }
         entry
     }
@@ -82,11 +82,7 @@ impl UnhashedTextMapEntry {
         let mut hash2 = hash1;
 
         for (i, b) in bytes.iter().enumerate() {
-            let hash = if i % 2 == 0 {
-                &mut hash1
-            } else {
-                &mut hash2
-            };
+            let hash = if i % 2 == 0 { &mut hash1 } else { &mut hash2 };
 
             *hash = (*hash).wrapping_shl(5).wrapping_add(*hash) ^ *b as i32;
         }

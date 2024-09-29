@@ -185,7 +185,6 @@ pub struct RelicDataConfig {
     pub BGStoryContent: UnhashedTextMapEntry,
 }
 
-
 #[derive(Resource, Deserialize, Debug)]
 pub struct AvatarSkillConfig {
     #[resource_key]
@@ -224,7 +223,6 @@ pub struct AvatarSkillConfig {
     pub SkillEffect: String,
     pub SkillComboValueDelta: Option<Float>,
 }
-
 
 #[derive(Deserialize, Debug)]
 pub struct PropertyQuantity {

@@ -8,13 +8,13 @@ use crate::network::bytes_as_hex;
 
 #[instrument(skip_all)]
 pub fn decrypt_command(key: &[u8], encrypted: &mut [u8]) {
-    trace!(data=bytes_as_hex(encrypted), "before decryption");
+    trace!(data = bytes_as_hex(encrypted), "before decryption");
 
     for i in 0..encrypted.len() {
         encrypted[i] ^= key[i % key.len()];
     }
 
-    trace!(data=bytes_as_hex(encrypted), "after decryption");
+    trace!(data = bytes_as_hex(encrypted), "after decryption");
 }
 
 pub fn lookup_initial_key(initial_keys: &HashMap<u32, Vec<u8>>, bytes: &[u8]) -> Vec<u8> {

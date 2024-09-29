@@ -6,7 +6,7 @@ use crate::network::{ConnectionPacket, PacketDirection};
 #[instrument(skip_all)]
 pub fn parse_connection_packet(port_filter: &[u16], bytes: Vec<u8>) -> Option<ConnectionPacket> {
     let (udp, payload) = parse_udp(bytes)?;
-    let direction = validate_ports(&port_filter, udp)?;
+    let direction = validate_ports(port_filter, udp)?;
 
     if payload.len() <= 20 {
         let code = u32::from_be_bytes(payload[..4].try_into().unwrap());
